@@ -191,6 +191,75 @@
 
 -(BOOL)validateExpDate: (NSString *)monthValue year:(NSString *)yearValue
 {
+    BOOL missingData = false;
+    
+    NSString *requiredMonthAlert = @"Expiration month is required";
+    NSString *requiredYearAlert = @"Expiration year is required";
+    NSString *invalidAlert = @"Invalid expiration date";
+    
+    if (monthValue == nil)
+    {
+        [errorMessages addObject: requiredMonthAlert];
+        missingData = true;
+    }
+    
+    if (yearValue == nil)
+    {
+        [errorMessages addObject: requiredYearAlert];
+        missingData = true;
+    }
+    
+    if (missingData) {
+        return false;
+    }
+    
+    NSMutableString *formattedMonth = [NSMutableString stringWithString:monthValue];
+    formattedMonth = [self trimString:formattedMonth];
+
+    NSMutableString *formattedYear = [NSMutableString stringWithString:yearValue];
+    formattedYear = [self trimString:formattedYear];
+    
+    if ([formattedMonth length] == 0)
+    {
+        [errorMessages addObject: requiredMonthAlert];
+        missingData = true;
+    }
+    
+    if ([formattedYear length] == 0)
+    {
+        [errorMessages addObject: requiredYearAlert];
+        missingData = true;
+    }
+    
+    if (missingData) {
+        return false;
+    }
+    
+    if (![self testRegExp:formattedMonth withPattern:@"^\\d{1,2}$"] ||
+        ![self testRegExp:formattedYear withPattern:@"^\\d{4}$"])
+    {
+        [errorMessages addObject: invalidAlert];
+        return false;
+    }
+    
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM"];
+    
+    NSDate *expirationDate =[dateFormatter dateFromString:[NSString
+                                                           stringWithFormat:@"%@-%@",
+                                                           formattedYear,
+                                                           formattedMonth ]];
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setMonth:1];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    expirationDate = [calendar dateByAddingComponents:dateComponents toDate:expirationDate options:0];
+    
+    if ([expirationDate compare:today] == NSOrderedAscending) {
+        [errorMessages addObject: invalidAlert];
+        return false;
+    }
+    
     return true;
 }
 
