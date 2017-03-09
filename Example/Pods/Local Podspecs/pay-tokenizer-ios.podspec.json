@@ -1,0 +1,22 @@
+{
+  "name": "pay-tokenizer-ios",
+  "version": "0.1.0",
+  "summary": "A short description of pay-tokenizer-ios.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/omargon/pay-tokenizer-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "omargon": "omargon@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/omargon/pay-tokenizer-ios.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "pay-tokenizer-ios/Classes/**/*"
+}

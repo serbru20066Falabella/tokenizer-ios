@@ -1,0 +1,6 @@
+framework module Pods_pay_tokenizer_ios_Example {
+  umbrella header "Pods-pay-tokenizer-ios_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

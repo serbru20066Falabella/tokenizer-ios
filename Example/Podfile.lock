@@ -1,0 +1,16 @@
+PODS:
+  - pay-tokenizer-ios (0.1.0)
+
+DEPENDENCIES:
+  - pay-tokenizer-ios (from `../`)
+
+EXTERNAL SOURCES:
+  pay-tokenizer-ios:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  pay-tokenizer-ios: e095420af191afe562cca053cfe77a1df65f58db
+
+PODFILE CHECKSUM: 75b2747c4e2b10fe380e4544205a702a5e8c5930
+
+COCOAPODS: 1.1.1
