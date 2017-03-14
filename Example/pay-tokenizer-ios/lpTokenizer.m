@@ -472,8 +472,10 @@
 }
 
 
--(BOOL)requestToken: (NSDictionary *)formValues
+-(void)requestToken: (NSDictionary *)formValues completion: (void (^) (NSDictionary *, NSError *)) completion
 {
+    NSLog(@"%@", formValues);
+    
     errorMessages = [NSMutableArray arrayWithCapacity:1];
 
     [self validateKey: tokenizationKey];
@@ -492,11 +494,74 @@
         [self validateAddressPostalCode: [addressData objectForKey:@"addressPostalCode"]];
     }
     
-    for(NSString *message in errorMessages) {
-        NSLog(@"%@", message);
+    if ([errorMessages count] > 0) {
+        
+        
+        
+        id objectInstance;
+        NSUInteger indexKey = 0U;
+        
+        NSMutableDictionary *errorsDictionary = [[NSMutableDictionary alloc] init];
+        for (objectInstance in errorMessages)
+            [errorsDictionary setObject:objectInstance forKey:[NSString stringWithFormat:@"Error-%lu", indexKey++]];
+
+        completion(nil,[NSError errorWithDomain:NSURLErrorDomain code:0 userInfo:errorsDictionary]);
+        
+    } else {
+        
+        NSDictionary *postData =@{
+            @"tokenization_key": tokenizationKey,
+            @"token": @{
+                @"one_time": @"false",
+                @"payment_method": @{
+                    @"charge_card": formValues,
+                },
+            },
+        };
+        
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postData
+                                                           options:(NSJSONWritingOptions) 0
+                                                             error:&error];
+        
+        
+        if (!jsonData)
+        {
+            NSLog(@"bv_jsonStringWithPrettyPrint: error: %@", error.localizedDescription);
+            completion(nil,[NSError errorWithDomain:NSURLErrorDomain code:0 userInfo:@{@"Error message": @"JSON error"}]);
+        }
+        
+        // Submit form
+        
+        
+        NSString* apiPath = @"https://echo.getpostman.com/post";
+        
+        NSURL *apiURL = [NSURL URLWithString: apiPath];
+      
+        NSMutableURLRequest* urlRequest = [NSMutableURLRequest requestWithURL:apiURL];
+        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [urlRequest setHTTPMethod:@"POST"];
+        
+        [urlRequest setHTTPBody: jsonData];
+        
+        [NSURLConnection sendAsynchronousRequest:urlRequest
+                                           queue:[[NSOperationQueue alloc] init]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+            if(error!=nil){
+                completion(nil,error);
+            }else{
+                NSError* jsonError;
+                NSDictionary* results = [NSJSONSerialization JSONObjectWithData:data
+                                                                        options:NSJSONReadingAllowFragments
+                                                                          error:&jsonError];
+                if(jsonError!=nil){
+                    completion(nil,jsonError);
+                }else{
+                    completion(results,nil);
+                }
+            }
+        }];
     }
-    
-    return true;
 }
 
 @end

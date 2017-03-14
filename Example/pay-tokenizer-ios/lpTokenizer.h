@@ -34,6 +34,6 @@
 
 -(BOOL)validateAddressPostalCode: (NSString *)postalCode;
 
--(BOOL)requestToken: (NSDictionary *)formValues;
+-(void)requestToken: (NSDictionary *)formValues completion: (void (^)(NSDictionary* data, NSError* error))completion;
 
 @end

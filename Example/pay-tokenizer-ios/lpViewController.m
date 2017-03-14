@@ -61,6 +61,28 @@ lpTokenizer *tokenizer;
                @"addressCountryCode": addressCountryCodeField.text,
                @"addressPostalCode": addressPostalCodeField.text,
                },
+       } completion: ^(NSDictionary *data, NSError *error){
+           
+           NSMutableString *message = [[NSMutableString alloc] init];
+           if(error!=nil)
+           {
+               message = [NSMutableString stringWithFormat:@"%@", error.userInfo];
+           }
+           else
+           {
+               message = [NSMutableString stringWithFormat:@"%@", data];
+           }
+           
+           dispatch_async(dispatch_get_main_queue(), ^{
+               UIAlertView *alert = [[UIAlertView alloc]
+                                     initWithTitle:@"Tokenizer Response"
+                                     message:[NSString stringWithFormat:@"%@", message]
+                                     delegate:nil
+                                     cancelButtonTitle:@"Dismiss"
+                                     otherButtonTitles:nil];
+               [alert show];
+           });
+           
        }];
 }
 @end
