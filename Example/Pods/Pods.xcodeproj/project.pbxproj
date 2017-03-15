@@ -17,7 +17,6 @@
 		B97C3CB071C481535111C4D7536133B8 /* Pods-LinioPayTokenizer_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9561F6212EB4833EBEC4703BC9C8C025 /* Pods-LinioPayTokenizer_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAB1643F403CC229465AC76CEBBBAE71 /* LinioPayTokenizer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F36E1DAFFFA87F489F5B1230F20023D5 /* LinioPayTokenizer-dummy.m */; };
 		DF6638B8D64EB9A173C3343A658E1546 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		E52A5849131987AB97A1FAB319475DC8 /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B7DB2BE6D0317A5EA75FE1951A01A /* ReplaceMe.m */; };
 		E54ED44E48788E59DA296059C8B38201 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +43,6 @@
 		3664D058E6693E7DF3D28BF835E30D43 /* Pods-LinioPayTokenizer_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LinioPayTokenizer_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		3F52E89032E29EFAFB67BA7BEC897906 /* Pods-LinioPayTokenizer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinioPayTokenizer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4929C142EED53950A3EE13EFCAE454B4 /* Pods-LinioPayTokenizer_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LinioPayTokenizer_Example-dummy.m"; sourceTree = "<group>"; };
-		4E8B7DB2BE6D0317A5EA75FE1951A01A /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
 		59148F023DA90D9C8EEC503D93EA429A /* Pods-LinioPayTokenizer_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LinioPayTokenizer_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		59AC858DEA2EFE24AEB672A360D9FA65 /* Pods-LinioPayTokenizer_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LinioPayTokenizer_Tests.modulemap"; sourceTree = "<group>"; };
 		5C7FA84CA3DAEA006A6D1C465D5E89EE /* Pods-LinioPayTokenizer_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LinioPayTokenizer_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			children = (
 				07DA9A3B1E78C26900EE9E4A /* LinioPayTokenizer.h */,
 				07DA9A3C1E78C26900EE9E4A /* LinioPayTokenizer.m */,
-				287A090745FACBF490822FC931300D61 /* Classes */,
 			);
 			path = LinioPayTokenizer;
 			sourceTree = "<group>";
@@ -126,14 +123,6 @@
 				72E1FC05BC1746ADF1EE661339D71A07 /* LinioPayTokenizer */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		287A090745FACBF490822FC931300D61 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				4E8B7DB2BE6D0317A5EA75FE1951A01A /* ReplaceMe.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		6C882341E45D1C8A3DC6BE7E38925DA7 /* Pods-LinioPayTokenizer_Tests */ = {
@@ -345,7 +334,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB1643F403CC229465AC76CEBBBAE71 /* LinioPayTokenizer-dummy.m in Sources */,
-				E52A5849131987AB97A1FAB319475DC8 /* ReplaceMe.m in Sources */,
 				07DA9A3E1E78C26900EE9E4A /* LinioPayTokenizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
