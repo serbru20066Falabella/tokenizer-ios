@@ -22,7 +22,7 @@ LinioPayTokenizer *tokenizer;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
-    tokenizer = [[LinioPayTokenizer alloc] initWithKey:@"1234345345333"];
+    tokenizer = [[LinioPayTokenizer alloc] initWithKey:@"test_0618f5c21603cd9d33ba8a8f0c9e2446283"];
 
 }
 

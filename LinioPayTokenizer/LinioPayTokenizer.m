@@ -22,10 +22,7 @@
         
         if(self)
         {
-            if ([self validateKey: key])
-            {
-                tokenizationKey = key;
-            }
+            tokenizationKey = key;
         }
         return self;
     }
@@ -33,6 +30,8 @@
     -(BOOL)validateKey: (NSString *)key
     {
         NSString *requiredAlert = @"Tokenization key is required";
+        NSString *invalidAlert = @"Tokenization key is invalid";
+        NSInteger validkeyLength = 40;
         
         if (key == nil) {
             [errorMessages addObject: requiredAlert];
@@ -45,6 +44,12 @@
         if ([formattedKey length] == 0)
         {
             [errorMessages addObject: requiredAlert];
+            return false;
+        }
+        
+        if (![self testRegExp:formattedKey withPattern:[NSString stringWithFormat: @"^\\w{%lu}$", (unsigned long)validkeyLength]])
+        {
+            [errorMessages addObject: invalidAlert];
             return false;
         }
         
@@ -454,7 +459,7 @@
         return modifiedString;
     }
 
-    -(NSUInteger)testRegExp: (NSString *)string withPattern:(NSString *) pattern
+    -(BOOL)testRegExp: (NSString *)string withPattern:(NSString *) pattern
     {
         NSError *error = nil;
         
@@ -462,13 +467,16 @@
                                       regularExpressionWithPattern: pattern
                                       options:NSRegularExpressionCaseInsensitive error: &error];
         
-        return [regex numberOfMatchesInString:string options:0 range:NSMakeRange(0, [string length])];
+        if ([regex numberOfMatchesInString:string options:0 range:NSMakeRange(0, [string length])] > 0)
+        {
+            return true;
+        }
+        
+        return false;
     }
 
     -(void)requestToken: (NSDictionary *)formValues completion: (void (^) (NSDictionary *, NSError *)) completion
     {
-        NSLog(@"%@", formValues);
-        
         errorMessages = [NSMutableArray arrayWithCapacity:1];
         
         [self validateKey: tokenizationKey];
