@@ -1,6 +1,0 @@
-framework module pay_tokenizer_ios {
-  umbrella header "pay-tokenizer-ios-umbrella.h"
-
-  export *
-  module * { export * }
-}

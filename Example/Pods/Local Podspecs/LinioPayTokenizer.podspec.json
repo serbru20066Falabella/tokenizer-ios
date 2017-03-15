@@ -1,0 +1,22 @@
+{
+  "name": "LinioPayTokenizer",
+  "version": "0.1.0",
+  "summary": "A short description of LinioPayTokenizer.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/omargon/LinioPayTokenizer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "omargon": "omargon@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/omargon/LinioPayTokenizer.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "LinioPayTokenizer/Classes/**/*"
+}

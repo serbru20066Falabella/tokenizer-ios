@@ -1,8 +1,8 @@
 //
-//  pay-tokenizer-iosTests.m
-//  pay-tokenizer-iosTests
+//  LinioPayTokenizerTests.m
+//  LinioPayTokenizerTests
 //
-//  Created by omargon on 03/01/2017.
+//  Created by omargon on 03/14/2017.
 //  Copyright (c) 2017 omargon. All rights reserved.
 //
 

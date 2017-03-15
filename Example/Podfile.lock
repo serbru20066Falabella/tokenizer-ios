@@ -1,16 +1,16 @@
 PODS:
-  - pay-tokenizer-ios (0.1.0)
+  - LinioPayTokenizer (0.1.0)
 
 DEPENDENCIES:
-  - pay-tokenizer-ios (from `../`)
+  - LinioPayTokenizer (from `../`)
 
 EXTERNAL SOURCES:
-  pay-tokenizer-ios:
+  LinioPayTokenizer:
     :path: "../"
 
 SPEC CHECKSUMS:
-  pay-tokenizer-ios: e095420af191afe562cca053cfe77a1df65f58db
+  LinioPayTokenizer: e095b0ed0fd8adc16ad895deafec249d6b74b657
 
-PODFILE CHECKSUM: 75b2747c4e2b10fe380e4544205a702a5e8c5930
+PODFILE CHECKSUM: a09aa876ad42818fdb4713898cc82a52d824fd60
 
 COCOAPODS: 1.1.1

@@ -7,125 +7,161 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07FA617F1E69C84000689C34 /* pay-tokenizer-ios.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FA617E1E69C84000689C34 /* pay-tokenizer-ios.m */; };
-		0C1944018D264F4C7DF7C16B7F06E6D1 /* Pods-pay-tokenizer-ios_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 81FDFE1F38ABB7071D73BA5375703969 /* Pods-pay-tokenizer-ios_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13D8943BF8218F0A665A90D1CF248952 /* pay-tokenizer-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67506D7824A5E6742713B05716A7AC05 /* pay-tokenizer-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		14B67670FA92E2FF48F93400439289A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		18DE455D4F140E2E48E9A56320E44933 /* Pods-pay-tokenizer-ios_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4281B6F5F9EBAED2C0EDAAE6B455C9 /* Pods-pay-tokenizer-ios_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2C29C83BFDC413248836E470465DF928 /* Pods-pay-tokenizer-ios_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EBE1FF4C6C778A9B6A9B55C64B7EB6 /* Pods-pay-tokenizer-ios_Example-dummy.m */; };
-		3D9F23507CF09E546C8623A4C184CB1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		3F29BECF9E9F663E84D838BCB7519915 /* pay-tokenizer-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BCC26BFA7379F12D70136C43740B1 /* pay-tokenizer-ios-dummy.m */; };
-		469497DA9FD8BE13844B09F317A4CB2B /* Pods-pay-tokenizer-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5689C8731A0D1A6B67E8DB337131F12 /* Pods-pay-tokenizer-ios_Tests-dummy.m */; };
-		918C91E506F970B572441E7C2F25522E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		07DA9A3D1E78C26900EE9E4A /* LinioPayTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DA9A3B1E78C26900EE9E4A /* LinioPayTokenizer.h */; };
+		07DA9A3E1E78C26900EE9E4A /* LinioPayTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DA9A3C1E78C26900EE9E4A /* LinioPayTokenizer.m */; };
+		0A45FEAECAA6CD39B3FC0405FE176B60 /* Pods-LinioPayTokenizer_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AE77F8E0D70C6A1A02988CE692C3D8 /* Pods-LinioPayTokenizer_Tests-dummy.m */; };
+		3BD689256847593A38BDEED4FAB352C6 /* LinioPayTokenizer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D3541F81726849AA81C20A084D9C7F20 /* LinioPayTokenizer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5CF2C2EBD62E84B786014A5633DA22F8 /* Pods-LinioPayTokenizer_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929C142EED53950A3EE13EFCAE454B4 /* Pods-LinioPayTokenizer_Example-dummy.m */; };
+		742377A7D3693D44DA5B2AD61C8F4C2E /* Pods-LinioPayTokenizer_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BEE2A946CF9460C56F119651A852D61B /* Pods-LinioPayTokenizer_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7FBFD3297DB889F051FC56A80F7084CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		B97C3CB071C481535111C4D7536133B8 /* Pods-LinioPayTokenizer_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9561F6212EB4833EBEC4703BC9C8C025 /* Pods-LinioPayTokenizer_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BAB1643F403CC229465AC76CEBBBAE71 /* LinioPayTokenizer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F36E1DAFFFA87F489F5B1230F20023D5 /* LinioPayTokenizer-dummy.m */; };
+		DF6638B8D64EB9A173C3343A658E1546 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		E52A5849131987AB97A1FAB319475DC8 /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B7DB2BE6D0317A5EA75FE1951A01A /* ReplaceMe.m */; };
+		E54ED44E48788E59DA296059C8B38201 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ABCC694667D1F96D3984E75FD9EBDB1A /* PBXContainerItemProxy */ = {
+		76ABBFE9ED9E1C1AEB1C9C97050983DA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E6FCDAD0B2875CF4CBB0CFA52DC33551;
-			remoteInfo = "pay-tokenizer-ios";
+			remoteGlobalIDString = 7F093620E2968734110892117BD5BF80;
+			remoteInfo = LinioPayTokenizer;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0314486EB570F455F05AB3B1C0725E1D /* Pods-pay-tokenizer-ios_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pay-tokenizer-ios_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0632F449B306DB5CE937391A0F738A3F /* Pods-pay-tokenizer-ios_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-pay-tokenizer-ios_Example.modulemap"; sourceTree = "<group>"; };
-		07FA617E1E69C84000689C34 /* pay-tokenizer-ios.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "pay-tokenizer-ios.m"; sourceTree = "<group>"; };
-		0930BD61BAF3B868C143C647A3A66255 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C4281B6F5F9EBAED2C0EDAAE6B455C9 /* Pods-pay-tokenizer-ios_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-pay-tokenizer-ios_Tests-umbrella.h"; sourceTree = "<group>"; };
-		10178CA5CC1EC8795BBE8AAEF99F9802 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34E17C83B8E6B8837723AF19C2AB5BDD /* pay-tokenizer-ios.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "pay-tokenizer-ios.xcconfig"; sourceTree = "<group>"; };
-		3AFFA90E02719E5885E0DAD0B7649114 /* pay-tokenizer-ios.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "pay-tokenizer-ios.modulemap"; sourceTree = "<group>"; };
-		4F5BCC26BFA7379F12D70136C43740B1 /* pay-tokenizer-ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "pay-tokenizer-ios-dummy.m"; sourceTree = "<group>"; };
-		50EBE1FF4C6C778A9B6A9B55C64B7EB6 /* Pods-pay-tokenizer-ios_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-pay-tokenizer-ios_Example-dummy.m"; sourceTree = "<group>"; };
-		5726CE58191AEBBE601F67FFE2E18AAE /* Pods-pay-tokenizer-ios_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pay-tokenizer-ios_Example-frameworks.sh"; sourceTree = "<group>"; };
-		5A7C25BA2570AEAD053AAECB4192A80A /* Pods-pay-tokenizer-ios_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-pay-tokenizer-ios_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5D6430C9B15E1C18561FACFDB5D3A3F1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67506D7824A5E6742713B05716A7AC05 /* pay-tokenizer-ios-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "pay-tokenizer-ios-umbrella.h"; sourceTree = "<group>"; };
-		6A54F25A7F88ACE6AE9031BF6BF84049 /* Pods-pay-tokenizer-ios_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-pay-tokenizer-ios_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		6E89C8E62D6C44F565C0DDB0BC222A15 /* Pods-pay-tokenizer-ios_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pay-tokenizer-ios_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		79B534C332C05FD0D01642AB2900DDBF /* Pods-pay-tokenizer-ios_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pay-tokenizer-ios_Example-resources.sh"; sourceTree = "<group>"; };
-		80EFBD8516C47B86C8BD5FB6CC1563EB /* Pods_pay_tokenizer_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pay_tokenizer_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		81FDFE1F38ABB7071D73BA5375703969 /* Pods-pay-tokenizer-ios_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-pay-tokenizer-ios_Example-umbrella.h"; sourceTree = "<group>"; };
-		8C464739C48CB564F3308ED05ED7B2D0 /* Pods-pay-tokenizer-ios_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-pay-tokenizer-ios_Tests.modulemap"; sourceTree = "<group>"; };
+		0668E2582BCA88D4429DE33F0E8B8317 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07DA9A3B1E78C26900EE9E4A /* LinioPayTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinioPayTokenizer.h; sourceTree = "<group>"; };
+		07DA9A3C1E78C26900EE9E4A /* LinioPayTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinioPayTokenizer.m; sourceTree = "<group>"; };
+		0F7D97A752F54F4FB6802EC030BC44E0 /* Pods-LinioPayTokenizer_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LinioPayTokenizer_Example-resources.sh"; sourceTree = "<group>"; };
+		2059C4A8EE9D073FBE55773560B66558 /* Pods-LinioPayTokenizer_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LinioPayTokenizer_Example.modulemap"; sourceTree = "<group>"; };
+		234370608FFAED1E30C7D2E9475AACC7 /* Pods-LinioPayTokenizer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinioPayTokenizer_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		303FF1EABBA6FA1273C5CEEA495ED63B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32BC264823A410EBB1D5E13F45F8CC72 /* LinioPayTokenizer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = LinioPayTokenizer.modulemap; sourceTree = "<group>"; };
+		34815D42FD831F6173D6BF5F3510E2F3 /* Pods_LinioPayTokenizer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LinioPayTokenizer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3664D058E6693E7DF3D28BF835E30D43 /* Pods-LinioPayTokenizer_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LinioPayTokenizer_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		3F52E89032E29EFAFB67BA7BEC897906 /* Pods-LinioPayTokenizer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinioPayTokenizer_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4929C142EED53950A3EE13EFCAE454B4 /* Pods-LinioPayTokenizer_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LinioPayTokenizer_Example-dummy.m"; sourceTree = "<group>"; };
+		4E8B7DB2BE6D0317A5EA75FE1951A01A /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
+		59148F023DA90D9C8EEC503D93EA429A /* Pods-LinioPayTokenizer_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LinioPayTokenizer_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		59AC858DEA2EFE24AEB672A360D9FA65 /* Pods-LinioPayTokenizer_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LinioPayTokenizer_Tests.modulemap"; sourceTree = "<group>"; };
+		5C7FA84CA3DAEA006A6D1C465D5E89EE /* Pods-LinioPayTokenizer_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LinioPayTokenizer_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		6E8E54FDDE87DE41A8CAE725F092B6FB /* Pods-LinioPayTokenizer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinioPayTokenizer_Example.release.xcconfig"; sourceTree = "<group>"; };
+		70CFAB2FFA674249041C748F1EAABC00 /* Pods-LinioPayTokenizer_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LinioPayTokenizer_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		71AE77F8E0D70C6A1A02988CE692C3D8 /* Pods-LinioPayTokenizer_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LinioPayTokenizer_Tests-dummy.m"; sourceTree = "<group>"; };
+		817D0E0D187E8D6B13384356A1EE3BA4 /* LinioPayTokenizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LinioPayTokenizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A32FD37F6EFB410EA949A8B4ED7711EC /* Pods_pay_tokenizer_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pay_tokenizer_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A55825863456BF681AC93E2E3A2D73BA /* pay_tokenizer_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = pay_tokenizer_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B9C5A1D7F725515B3B1F8D9FC63D72D7 /* Pods-pay-tokenizer-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pay-tokenizer-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C04C9B48FBAE6783942F14F714EBA428 /* Pods-pay-tokenizer-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pay-tokenizer-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C17D74B73241BA36C460BB466CFD0718 /* Pods-pay-tokenizer-ios_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pay-tokenizer-ios_Tests-resources.sh"; sourceTree = "<group>"; };
-		C8E9C5447A5D1E1A8AA2F42D55C0836D /* Pods-pay-tokenizer-ios_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-pay-tokenizer-ios_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		9561F6212EB4833EBEC4703BC9C8C025 /* Pods-LinioPayTokenizer_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LinioPayTokenizer_Tests-umbrella.h"; sourceTree = "<group>"; };
+		AB13610E7204A8B6709A63175549F180 /* LinioPayTokenizer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LinioPayTokenizer-prefix.pch"; sourceTree = "<group>"; };
+		B7BAECC8A3A7364B39D722AAA49FB052 /* Pods-LinioPayTokenizer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinioPayTokenizer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B8694ECC906C344E8505B40693064E82 /* Pods-LinioPayTokenizer_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LinioPayTokenizer_Tests-resources.sh"; sourceTree = "<group>"; };
+		BEE2A946CF9460C56F119651A852D61B /* Pods-LinioPayTokenizer_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LinioPayTokenizer_Example-umbrella.h"; sourceTree = "<group>"; };
+		C5AC338856D1B0D6DE21E0F389877C74 /* LinioPayTokenizer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LinioPayTokenizer.xcconfig; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D5689C8731A0D1A6B67E8DB337131F12 /* Pods-pay-tokenizer-ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-pay-tokenizer-ios_Tests-dummy.m"; sourceTree = "<group>"; };
-		E6D932AEBCDFC85417A76A3A4D970B62 /* Pods-pay-tokenizer-ios_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-pay-tokenizer-ios_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EC2444A6743693E17A954AC0592D0196 /* pay-tokenizer-ios-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "pay-tokenizer-ios-prefix.pch"; sourceTree = "<group>"; };
-		F5DD7B7D842A70CBF90A43489B58A876 /* Pods-pay-tokenizer-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pay-tokenizer-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D3541F81726849AA81C20A084D9C7F20 /* LinioPayTokenizer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LinioPayTokenizer-umbrella.h"; sourceTree = "<group>"; };
+		EB9F10AEBAC6C54555E1A059DE08884F /* Pods-LinioPayTokenizer_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LinioPayTokenizer_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F105AEC6B271296F689D4E574853D5C0 /* Pods-LinioPayTokenizer_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LinioPayTokenizer_Example-frameworks.sh"; sourceTree = "<group>"; };
+		F36E1DAFFFA87F489F5B1230F20023D5 /* LinioPayTokenizer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LinioPayTokenizer-dummy.m"; sourceTree = "<group>"; };
+		F89DD8D7008F31393D4B1D236747B58D /* Pods_LinioPayTokenizer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LinioPayTokenizer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD4E1B3550469258ECCBBF2FC481F04D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0994714D58EE23237824A51D4107E7B8 /* Frameworks */ = {
+		1C18C9949295CBBDCF24C80A9580CD70 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9F23507CF09E546C8623A4C184CB1E /* Foundation.framework in Frameworks */,
+				E54ED44E48788E59DA296059C8B38201 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		337E1E0A8CC3C69A054C94A82854AFD2 /* Frameworks */ = {
+		45649E879E7620230DB44B6382E74CF3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				918C91E506F970B572441E7C2F25522E /* Foundation.framework in Frameworks */,
+				DF6638B8D64EB9A173C3343A658E1546 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AAF4BD1214C52AAFFD8FC3BFB5C5279B /* Frameworks */ = {
+		50375E5C4AF8F8FA446F1480AFE2EE80 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B67670FA92E2FF48F93400439289A6 /* Foundation.framework in Frameworks */,
+				7FBFD3297DB889F051FC56A80F7084CA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16510380CEF4D75D3DD7FF68BBE58089 /* Pods-pay-tokenizer-ios_Tests */ = {
+		058FE1BB705A0302BDE26352ABFC4D96 /* LinioPayTokenizer */ = {
 			isa = PBXGroup;
 			children = (
-				0930BD61BAF3B868C143C647A3A66255 /* Info.plist */,
-				8C464739C48CB564F3308ED05ED7B2D0 /* Pods-pay-tokenizer-ios_Tests.modulemap */,
-				5A7C25BA2570AEAD053AAECB4192A80A /* Pods-pay-tokenizer-ios_Tests-acknowledgements.markdown */,
-				C8E9C5447A5D1E1A8AA2F42D55C0836D /* Pods-pay-tokenizer-ios_Tests-acknowledgements.plist */,
-				D5689C8731A0D1A6B67E8DB337131F12 /* Pods-pay-tokenizer-ios_Tests-dummy.m */,
-				6E89C8E62D6C44F565C0DDB0BC222A15 /* Pods-pay-tokenizer-ios_Tests-frameworks.sh */,
-				C17D74B73241BA36C460BB466CFD0718 /* Pods-pay-tokenizer-ios_Tests-resources.sh */,
-				0C4281B6F5F9EBAED2C0EDAAE6B455C9 /* Pods-pay-tokenizer-ios_Tests-umbrella.h */,
-				F5DD7B7D842A70CBF90A43489B58A876 /* Pods-pay-tokenizer-ios_Tests.debug.xcconfig */,
-				C04C9B48FBAE6783942F14F714EBA428 /* Pods-pay-tokenizer-ios_Tests.release.xcconfig */,
+				07DA9A3B1E78C26900EE9E4A /* LinioPayTokenizer.h */,
+				07DA9A3C1E78C26900EE9E4A /* LinioPayTokenizer.m */,
+				287A090745FACBF490822FC931300D61 /* Classes */,
 			);
-			name = "Pods-pay-tokenizer-ios_Tests";
-			path = "Target Support Files/Pods-pay-tokenizer-ios_Tests";
+			path = LinioPayTokenizer;
 			sourceTree = "<group>";
 		};
-		1C7418F3EDE88092DD9AC43998796DF9 /* Pods-pay-tokenizer-ios_Example */ = {
+		2155415D7B45860C0282594AC6394A55 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				10178CA5CC1EC8795BBE8AAEF99F9802 /* Info.plist */,
-				0632F449B306DB5CE937391A0F738A3F /* Pods-pay-tokenizer-ios_Example.modulemap */,
-				E6D932AEBCDFC85417A76A3A4D970B62 /* Pods-pay-tokenizer-ios_Example-acknowledgements.markdown */,
-				6A54F25A7F88ACE6AE9031BF6BF84049 /* Pods-pay-tokenizer-ios_Example-acknowledgements.plist */,
-				50EBE1FF4C6C778A9B6A9B55C64B7EB6 /* Pods-pay-tokenizer-ios_Example-dummy.m */,
-				5726CE58191AEBBE601F67FFE2E18AAE /* Pods-pay-tokenizer-ios_Example-frameworks.sh */,
-				79B534C332C05FD0D01642AB2900DDBF /* Pods-pay-tokenizer-ios_Example-resources.sh */,
-				81FDFE1F38ABB7071D73BA5375703969 /* Pods-pay-tokenizer-ios_Example-umbrella.h */,
-				0314486EB570F455F05AB3B1C0725E1D /* Pods-pay-tokenizer-ios_Example.debug.xcconfig */,
-				B9C5A1D7F725515B3B1F8D9FC63D72D7 /* Pods-pay-tokenizer-ios_Example.release.xcconfig */,
+				0668E2582BCA88D4429DE33F0E8B8317 /* Info.plist */,
+				32BC264823A410EBB1D5E13F45F8CC72 /* LinioPayTokenizer.modulemap */,
+				C5AC338856D1B0D6DE21E0F389877C74 /* LinioPayTokenizer.xcconfig */,
+				F36E1DAFFFA87F489F5B1230F20023D5 /* LinioPayTokenizer-dummy.m */,
+				AB13610E7204A8B6709A63175549F180 /* LinioPayTokenizer-prefix.pch */,
+				D3541F81726849AA81C20A084D9C7F20 /* LinioPayTokenizer-umbrella.h */,
 			);
-			name = "Pods-pay-tokenizer-ios_Example";
-			path = "Target Support Files/Pods-pay-tokenizer-ios_Example";
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/LinioPayTokenizer";
+			sourceTree = "<group>";
+		};
+		27CCAC14BB5289F8AE19282AE76BF14D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72E1FC05BC1746ADF1EE661339D71A07 /* LinioPayTokenizer */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		287A090745FACBF490822FC931300D61 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4E8B7DB2BE6D0317A5EA75FE1951A01A /* ReplaceMe.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6C882341E45D1C8A3DC6BE7E38925DA7 /* Pods-LinioPayTokenizer_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				303FF1EABBA6FA1273C5CEEA495ED63B /* Info.plist */,
+				59AC858DEA2EFE24AEB672A360D9FA65 /* Pods-LinioPayTokenizer_Tests.modulemap */,
+				EB9F10AEBAC6C54555E1A059DE08884F /* Pods-LinioPayTokenizer_Tests-acknowledgements.markdown */,
+				5C7FA84CA3DAEA006A6D1C465D5E89EE /* Pods-LinioPayTokenizer_Tests-acknowledgements.plist */,
+				71AE77F8E0D70C6A1A02988CE692C3D8 /* Pods-LinioPayTokenizer_Tests-dummy.m */,
+				59148F023DA90D9C8EEC503D93EA429A /* Pods-LinioPayTokenizer_Tests-frameworks.sh */,
+				B8694ECC906C344E8505B40693064E82 /* Pods-LinioPayTokenizer_Tests-resources.sh */,
+				9561F6212EB4833EBEC4703BC9C8C025 /* Pods-LinioPayTokenizer_Tests-umbrella.h */,
+				B7BAECC8A3A7364B39D722AAA49FB052 /* Pods-LinioPayTokenizer_Tests.debug.xcconfig */,
+				3F52E89032E29EFAFB67BA7BEC897906 /* Pods-LinioPayTokenizer_Tests.release.xcconfig */,
+			);
+			name = "Pods-LinioPayTokenizer_Tests";
+			path = "Target Support Files/Pods-LinioPayTokenizer_Tests";
+			sourceTree = "<group>";
+		};
+		72E1FC05BC1746ADF1EE661339D71A07 /* LinioPayTokenizer */ = {
+			isa = PBXGroup;
+			children = (
+				058FE1BB705A0302BDE26352ABFC4D96 /* LinioPayTokenizer */,
+				2155415D7B45860C0282594AC6394A55 /* Support Files */,
+			);
+			name = LinioPayTokenizer;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -136,66 +172,33 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7C45B257A3F9836DD24711769A8C4DE9 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8F98B03FBD227AC933E4AD57E76C624F /* pay-tokenizer-ios */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				7C45B257A3F9836DD24711769A8C4DE9 /* Development Pods */,
+				27CCAC14BB5289F8AE19282AE76BF14D /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				9066B0794A30DB55B8C73D6AE8E0B831 /* Products */,
-				92A1220350F658043702D3CCF46E3A30 /* Targets Support Files */,
+				CCD6AC97783E7D27171FB5A04FB9624C /* Products */,
+				DFE8FE50BC27554EB45D525BF75DE785 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8F98B03FBD227AC933E4AD57E76C624F /* pay-tokenizer-ios */ = {
+		B60D96312E419C9CE42C7DE90E3D6139 /* Pods-LinioPayTokenizer_Example */ = {
 			isa = PBXGroup;
 			children = (
-				F5B1C64C970FAD3C858335D30F243BA6 /* pay-tokenizer-ios */,
-				9FE67F7C272AC3FF79244F92E1D1B1ED /* Support Files */,
+				FD4E1B3550469258ECCBBF2FC481F04D /* Info.plist */,
+				2059C4A8EE9D073FBE55773560B66558 /* Pods-LinioPayTokenizer_Example.modulemap */,
+				70CFAB2FFA674249041C748F1EAABC00 /* Pods-LinioPayTokenizer_Example-acknowledgements.markdown */,
+				3664D058E6693E7DF3D28BF835E30D43 /* Pods-LinioPayTokenizer_Example-acknowledgements.plist */,
+				4929C142EED53950A3EE13EFCAE454B4 /* Pods-LinioPayTokenizer_Example-dummy.m */,
+				F105AEC6B271296F689D4E574853D5C0 /* Pods-LinioPayTokenizer_Example-frameworks.sh */,
+				0F7D97A752F54F4FB6802EC030BC44E0 /* Pods-LinioPayTokenizer_Example-resources.sh */,
+				BEE2A946CF9460C56F119651A852D61B /* Pods-LinioPayTokenizer_Example-umbrella.h */,
+				234370608FFAED1E30C7D2E9475AACC7 /* Pods-LinioPayTokenizer_Example.debug.xcconfig */,
+				6E8E54FDDE87DE41A8CAE725F092B6FB /* Pods-LinioPayTokenizer_Example.release.xcconfig */,
 			);
-			name = "pay-tokenizer-ios";
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		9066B0794A30DB55B8C73D6AE8E0B831 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A55825863456BF681AC93E2E3A2D73BA /* pay_tokenizer_ios.framework */,
-				80EFBD8516C47B86C8BD5FB6CC1563EB /* Pods_pay_tokenizer_ios_Example.framework */,
-				A32FD37F6EFB410EA949A8B4ED7711EC /* Pods_pay_tokenizer_ios_Tests.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		92A1220350F658043702D3CCF46E3A30 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1C7418F3EDE88092DD9AC43998796DF9 /* Pods-pay-tokenizer-ios_Example */,
-				16510380CEF4D75D3DD7FF68BBE58089 /* Pods-pay-tokenizer-ios_Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		9FE67F7C272AC3FF79244F92E1D1B1ED /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5D6430C9B15E1C18561FACFDB5D3A3F1 /* Info.plist */,
-				3AFFA90E02719E5885E0DAD0B7649114 /* pay-tokenizer-ios.modulemap */,
-				34E17C83B8E6B8837723AF19C2AB5BDD /* pay-tokenizer-ios.xcconfig */,
-				4F5BCC26BFA7379F12D70136C43740B1 /* pay-tokenizer-ios-dummy.m */,
-				EC2444A6743693E17A954AC0592D0196 /* pay-tokenizer-ios-prefix.pch */,
-				67506D7824A5E6742713B05716A7AC05 /* pay-tokenizer-ios-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/pay-tokenizer-ios";
+			name = "Pods-LinioPayTokenizer_Example";
+			path = "Target Support Files/Pods-LinioPayTokenizer_Example";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -206,102 +209,106 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		ECE15981EDECC7F8868F7E26B0D630BF /* Classes */ = {
+		CCD6AC97783E7D27171FB5A04FB9624C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				07FA617E1E69C84000689C34 /* pay-tokenizer-ios.m */,
+				817D0E0D187E8D6B13384356A1EE3BA4 /* LinioPayTokenizer.framework */,
+				34815D42FD831F6173D6BF5F3510E2F3 /* Pods_LinioPayTokenizer_Example.framework */,
+				F89DD8D7008F31393D4B1D236747B58D /* Pods_LinioPayTokenizer_Tests.framework */,
 			);
-			path = Classes;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		F5B1C64C970FAD3C858335D30F243BA6 /* pay-tokenizer-ios */ = {
+		DFE8FE50BC27554EB45D525BF75DE785 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				ECE15981EDECC7F8868F7E26B0D630BF /* Classes */,
+				B60D96312E419C9CE42C7DE90E3D6139 /* Pods-LinioPayTokenizer_Example */,
+				6C882341E45D1C8A3DC6BE7E38925DA7 /* Pods-LinioPayTokenizer_Tests */,
 			);
-			path = "pay-tokenizer-ios";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6E4EF7D9F23511128A6DB5AB6AAC275B /* Headers */ = {
+		048AD4DFA192E7F46CCE3497D7B1B130 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18DE455D4F140E2E48E9A56320E44933 /* Pods-pay-tokenizer-ios_Tests-umbrella.h in Headers */,
+				3BD689256847593A38BDEED4FAB352C6 /* LinioPayTokenizer-umbrella.h in Headers */,
+				07DA9A3D1E78C26900EE9E4A /* LinioPayTokenizer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7289A30CF0708BC4BE5F1FD87B7BF6C2 /* Headers */ = {
+		18E1814629B019CC6A3BE4F8D01F2433 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13D8943BF8218F0A665A90D1CF248952 /* pay-tokenizer-ios-umbrella.h in Headers */,
+				742377A7D3693D44DA5B2AD61C8F4C2E /* Pods-LinioPayTokenizer_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C617B6CBD6FA4F739321D5942A9E6E1B /* Headers */ = {
+		8686D6789271977BEA19D3E765724EB1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C1944018D264F4C7DF7C16B7F06E6D1 /* Pods-pay-tokenizer-ios_Example-umbrella.h in Headers */,
+				B97C3CB071C481535111C4D7536133B8 /* Pods-LinioPayTokenizer_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3746213B328620418E712249CA76E77C /* Pods-pay-tokenizer-ios_Example */ = {
+		0BCF594A2E2D29A281AA0A0AD5F0CDFD /* Pods-LinioPayTokenizer_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9F939DD7D824C76923786E13B04D2A1D /* Build configuration list for PBXNativeTarget "Pods-pay-tokenizer-ios_Example" */;
+			buildConfigurationList = 8D13A2C2CA1CD703F1717E871B1EC781 /* Build configuration list for PBXNativeTarget "Pods-LinioPayTokenizer_Example" */;
 			buildPhases = (
-				EAE294E73E5FAA6529E2C683D534F085 /* Sources */,
-				0994714D58EE23237824A51D4107E7B8 /* Frameworks */,
-				C617B6CBD6FA4F739321D5942A9E6E1B /* Headers */,
+				84B50A7863348452A821ADD04638B892 /* Sources */,
+				1C18C9949295CBBDCF24C80A9580CD70 /* Frameworks */,
+				18E1814629B019CC6A3BE4F8D01F2433 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AB279E318E6210BAD30B0C93EA9D33C6 /* PBXTargetDependency */,
+				80216E13AB5FAA618AAB734539BF4CDB /* PBXTargetDependency */,
 			);
-			name = "Pods-pay-tokenizer-ios_Example";
-			productName = "Pods-pay-tokenizer-ios_Example";
-			productReference = 80EFBD8516C47B86C8BD5FB6CC1563EB /* Pods_pay_tokenizer_ios_Example.framework */;
+			name = "Pods-LinioPayTokenizer_Example";
+			productName = "Pods-LinioPayTokenizer_Example";
+			productReference = 34815D42FD831F6173D6BF5F3510E2F3 /* Pods_LinioPayTokenizer_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6794D1F73013FD7716BEAC85D596E8B9 /* Pods-pay-tokenizer-ios_Tests */ = {
+		7F093620E2968734110892117BD5BF80 /* LinioPayTokenizer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C8ED27E7CF75E2CF084DF7A7DCC4EAC4 /* Build configuration list for PBXNativeTarget "Pods-pay-tokenizer-ios_Tests" */;
+			buildConfigurationList = B7A8CADF33209DA63081B3EAD16D0260 /* Build configuration list for PBXNativeTarget "LinioPayTokenizer" */;
 			buildPhases = (
-				3AE6E7942B0B4527A0BE33627619D902 /* Sources */,
-				AAF4BD1214C52AAFFD8FC3BFB5C5279B /* Frameworks */,
-				6E4EF7D9F23511128A6DB5AB6AAC275B /* Headers */,
+				07DA5D534487F6AB38EB0B5A81237E50 /* Sources */,
+				50375E5C4AF8F8FA446F1480AFE2EE80 /* Frameworks */,
+				048AD4DFA192E7F46CCE3497D7B1B130 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-pay-tokenizer-ios_Tests";
-			productName = "Pods-pay-tokenizer-ios_Tests";
-			productReference = A32FD37F6EFB410EA949A8B4ED7711EC /* Pods_pay_tokenizer_ios_Tests.framework */;
+			name = LinioPayTokenizer;
+			productName = LinioPayTokenizer;
+			productReference = 817D0E0D187E8D6B13384356A1EE3BA4 /* LinioPayTokenizer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E6FCDAD0B2875CF4CBB0CFA52DC33551 /* pay-tokenizer-ios */ = {
+		A716CECF341066FA415E2CBD60E77F6A /* Pods-LinioPayTokenizer_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0E1DECF30B99A543C9EC2937EF939EA9 /* Build configuration list for PBXNativeTarget "pay-tokenizer-ios" */;
+			buildConfigurationList = 23CE459ED60D256E2E7D104D065915ED /* Build configuration list for PBXNativeTarget "Pods-LinioPayTokenizer_Tests" */;
 			buildPhases = (
-				E3EB1B766FA59ACC29654AD5282673D4 /* Sources */,
-				337E1E0A8CC3C69A054C94A82854AFD2 /* Frameworks */,
-				7289A30CF0708BC4BE5F1FD87B7BF6C2 /* Headers */,
+				7E77C81215636D728D1C6EF978394063 /* Sources */,
+				45649E879E7620230DB44B6382E74CF3 /* Frameworks */,
+				8686D6789271977BEA19D3E765724EB1 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "pay-tokenizer-ios";
-			productName = "pay-tokenizer-ios";
-			productReference = A55825863456BF681AC93E2E3A2D73BA /* pay_tokenizer_ios.framework */;
+			name = "Pods-LinioPayTokenizer_Tests";
+			productName = "Pods-LinioPayTokenizer_Tests";
+			productReference = F89DD8D7008F31393D4B1D236747B58D /* Pods_LinioPayTokenizer_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -321,93 +328,59 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 9066B0794A30DB55B8C73D6AE8E0B831 /* Products */;
+			productRefGroup = CCD6AC97783E7D27171FB5A04FB9624C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E6FCDAD0B2875CF4CBB0CFA52DC33551 /* pay-tokenizer-ios */,
-				3746213B328620418E712249CA76E77C /* Pods-pay-tokenizer-ios_Example */,
-				6794D1F73013FD7716BEAC85D596E8B9 /* Pods-pay-tokenizer-ios_Tests */,
+				7F093620E2968734110892117BD5BF80 /* LinioPayTokenizer */,
+				0BCF594A2E2D29A281AA0A0AD5F0CDFD /* Pods-LinioPayTokenizer_Example */,
+				A716CECF341066FA415E2CBD60E77F6A /* Pods-LinioPayTokenizer_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3AE6E7942B0B4527A0BE33627619D902 /* Sources */ = {
+		07DA5D534487F6AB38EB0B5A81237E50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				469497DA9FD8BE13844B09F317A4CB2B /* Pods-pay-tokenizer-ios_Tests-dummy.m in Sources */,
+				BAB1643F403CC229465AC76CEBBBAE71 /* LinioPayTokenizer-dummy.m in Sources */,
+				E52A5849131987AB97A1FAB319475DC8 /* ReplaceMe.m in Sources */,
+				07DA9A3E1E78C26900EE9E4A /* LinioPayTokenizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E3EB1B766FA59ACC29654AD5282673D4 /* Sources */ = {
+		7E77C81215636D728D1C6EF978394063 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07FA617F1E69C84000689C34 /* pay-tokenizer-ios.m in Sources */,
-				3F29BECF9E9F663E84D838BCB7519915 /* pay-tokenizer-ios-dummy.m in Sources */,
+				0A45FEAECAA6CD39B3FC0405FE176B60 /* Pods-LinioPayTokenizer_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EAE294E73E5FAA6529E2C683D534F085 /* Sources */ = {
+		84B50A7863348452A821ADD04638B892 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C29C83BFDC413248836E470465DF928 /* Pods-pay-tokenizer-ios_Example-dummy.m in Sources */,
+				5CF2C2EBD62E84B786014A5633DA22F8 /* Pods-LinioPayTokenizer_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AB279E318E6210BAD30B0C93EA9D33C6 /* PBXTargetDependency */ = {
+		80216E13AB5FAA618AAB734539BF4CDB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "pay-tokenizer-ios";
-			target = E6FCDAD0B2875CF4CBB0CFA52DC33551 /* pay-tokenizer-ios */;
-			targetProxy = ABCC694667D1F96D3984E75FD9EBDB1A /* PBXContainerItemProxy */;
+			name = LinioPayTokenizer;
+			target = 7F093620E2968734110892117BD5BF80 /* LinioPayTokenizer */;
+			targetProxy = 76ABBFE9ED9E1C1AEB1C9C97050983DA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		00694469C37563D4805CE2229288875F /* Debug */ = {
+		0ADB64AC8B8E6930A9F6ABB637D98A67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0314486EB570F455F05AB3B1C0725E1D /* Pods-pay-tokenizer-ios_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-pay-tokenizer-ios_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-pay-tokenizer-ios_Example/Pods-pay-tokenizer-ios_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_pay_tokenizer_ios_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		03516525FA5CED046EDED4F50441AD0B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C04C9B48FBAE6783942F14F714EBA428 /* Pods-pay-tokenizer-ios_Tests.release.xcconfig */;
+			baseConfigurationReference = 6E8E54FDDE87DE41A8CAE725F092B6FB /* Pods-LinioPayTokenizer_Example.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -420,18 +393,18 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-pay-tokenizer-ios_Tests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-LinioPayTokenizer_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-pay-tokenizer-ios_Tests/Pods-pay-tokenizer-ios_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-LinioPayTokenizer_Example/Pods-LinioPayTokenizer_Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_pay_tokenizer_ios_Tests;
+				PRODUCT_NAME = Pods_LinioPayTokenizer_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -440,40 +413,9 @@
 			};
 			name = Release;
 		};
-		365FBE042152AD6EE113ECAA48227D68 /* Debug */ = {
+		2067ABEC6C77FC28E8380EB05EE8A012 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34E17C83B8E6B8837723AF19C2AB5BDD /* pay-tokenizer-ios.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/pay-tokenizer-ios/pay-tokenizer-ios-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/pay-tokenizer-ios/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/pay-tokenizer-ios/pay-tokenizer-ios.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = pay_tokenizer_ios;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5FE96254FD4A874B65D15A6318419631 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34E17C83B8E6B8837723AF19C2AB5BDD /* pay-tokenizer-ios.xcconfig */;
+			baseConfigurationReference = C5AC338856D1B0D6DE21E0F389877C74 /* LinioPayTokenizer.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -486,14 +428,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/pay-tokenizer-ios/pay-tokenizer-ios-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/pay-tokenizer-ios/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/LinioPayTokenizer/LinioPayTokenizer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LinioPayTokenizer/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/pay-tokenizer-ios/pay-tokenizer-ios.modulemap";
+				MODULEMAP_FILE = "Target Support Files/LinioPayTokenizer/LinioPayTokenizer.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = pay_tokenizer_ios;
+				PRODUCT_NAME = LinioPayTokenizer;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -501,6 +443,142 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		3DC873815055D092AD50868748FD638C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5AC338856D1B0D6DE21E0F389877C74 /* LinioPayTokenizer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LinioPayTokenizer/LinioPayTokenizer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LinioPayTokenizer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LinioPayTokenizer/LinioPayTokenizer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = LinioPayTokenizer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		752E2E36ADCC2B5A8A0E5337AF473133 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 234370608FFAED1E30C7D2E9475AACC7 /* Pods-LinioPayTokenizer_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-LinioPayTokenizer_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LinioPayTokenizer_Example/Pods-LinioPayTokenizer_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_LinioPayTokenizer_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7F94E90A9061098825C7645AB725C5A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F52E89032E29EFAFB67BA7BEC897906 /* Pods-LinioPayTokenizer_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-LinioPayTokenizer_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LinioPayTokenizer_Tests/Pods-LinioPayTokenizer_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_LinioPayTokenizer_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		819ADB6E288CD4D03692FBD427BFFF61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7BAECC8A3A7364B39D722AAA49FB052 /* Pods-LinioPayTokenizer_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-LinioPayTokenizer_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LinioPayTokenizer_Tests/Pods-LinioPayTokenizer_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_LinioPayTokenizer_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		8DED8AD26D381A6ACFF202E5217EC498 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -586,84 +664,14 @@
 			};
 			name = Debug;
 		};
-		E2F6FEC477E1C5D1BF33F55C35A46B0C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9C5A1D7F725515B3B1F8D9FC63D72D7 /* Pods-pay-tokenizer-ios_Example.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-pay-tokenizer-ios_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-pay-tokenizer-ios_Example/Pods-pay-tokenizer-ios_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_pay_tokenizer_ios_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		ED30B72ED5FA7100DE2DC5C820B0491C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5DD7B7D842A70CBF90A43489B58A876 /* Pods-pay-tokenizer-ios_Tests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-pay-tokenizer-ios_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-pay-tokenizer-ios_Tests/Pods-pay-tokenizer-ios_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_pay_tokenizer_ios_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0E1DECF30B99A543C9EC2937EF939EA9 /* Build configuration list for PBXNativeTarget "pay-tokenizer-ios" */ = {
+		23CE459ED60D256E2E7D104D065915ED /* Build configuration list for PBXNativeTarget "Pods-LinioPayTokenizer_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				365FBE042152AD6EE113ECAA48227D68 /* Debug */,
-				5FE96254FD4A874B65D15A6318419631 /* Release */,
+				819ADB6E288CD4D03692FBD427BFFF61 /* Debug */,
+				7F94E90A9061098825C7645AB725C5A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -677,20 +685,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9F939DD7D824C76923786E13B04D2A1D /* Build configuration list for PBXNativeTarget "Pods-pay-tokenizer-ios_Example" */ = {
+		8D13A2C2CA1CD703F1717E871B1EC781 /* Build configuration list for PBXNativeTarget "Pods-LinioPayTokenizer_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				00694469C37563D4805CE2229288875F /* Debug */,
-				E2F6FEC477E1C5D1BF33F55C35A46B0C /* Release */,
+				752E2E36ADCC2B5A8A0E5337AF473133 /* Debug */,
+				0ADB64AC8B8E6930A9F6ABB637D98A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C8ED27E7CF75E2CF084DF7A7DCC4EAC4 /* Build configuration list for PBXNativeTarget "Pods-pay-tokenizer-ios_Tests" */ = {
+		B7A8CADF33209DA63081B3EAD16D0260 /* Build configuration list for PBXNativeTarget "LinioPayTokenizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ED30B72ED5FA7100DE2DC5C820B0491C /* Debug */,
-				03516525FA5CED046EDED4F50441AD0B /* Release */,
+				3DC873815055D092AD50868748FD638C /* Debug */,
+				2067ABEC6C77FC28E8380EB05EE8A012 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

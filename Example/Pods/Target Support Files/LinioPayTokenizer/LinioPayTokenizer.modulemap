@@ -1,0 +1,6 @@
+framework module LinioPayTokenizer {
+  umbrella header "LinioPayTokenizer-umbrella.h"
+
+  export *
+  module * { export * }
+}

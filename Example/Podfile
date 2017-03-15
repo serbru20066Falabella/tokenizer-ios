@@ -1,9 +1,9 @@
 use_frameworks!
 
-target 'pay-tokenizer-ios_Example' do
-  pod 'pay-tokenizer-ios', :path => '../'
+target 'LinioPayTokenizer_Example' do
+  pod 'LinioPayTokenizer', :path => '../'
 
-  target 'pay-tokenizer-ios_Tests' do
+  target 'LinioPayTokenizer_Tests' do
     inherit! :search_paths
 
     
