@@ -9,32 +9,36 @@
 #import "LinioPayTokenizer.h"
 #import "LinioPayTokenizerConstants.h"
 
-@implementation LinioPayTokenizer
+@interface LinioPayTokenizer ()
 
-    NSMutableArray *errorMessages;
-    NSString *tokenizationKey;
+@property (nonatomic, readwrite, strong) NSString *tokenizationKey;
+@property (nonatomic, readwrite, strong) NSMutableArray *errorMessages;
+
+@end
+
+@implementation LinioPayTokenizer
 
     -(id)initWithKey: (NSString *)key
     {
         self = [super init];
         
-        errorMessages = [NSMutableArray arrayWithCapacity:1];
+        _errorMessages = [NSMutableArray arrayWithCapacity:1];
         
         if(self)
         {
-            tokenizationKey = key;
+            _tokenizationKey = key;
         }
         return self;
     }
 
     -(BOOL)validateKey: (NSString *)key
     {
-        NSString *requiredAlert = @"Tokenization key is required";
-        NSString *invalidAlert = @"Tokenization key is invalid";
-        NSInteger validkeyLength = 40;
+        const NSString *requiredAlert = @"Tokenization key is required";
+        const NSString *invalidAlert = @"Tokenization key is invalid";
+        const NSInteger validkeyLength = 40;
         
         if (key == nil) {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
@@ -43,13 +47,13 @@
         
         if ([formattedKey length] == 0)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
         if (![self testRegExp:formattedKey withPattern:[NSString stringWithFormat: @"^\\w{%lu}$", (unsigned long)validkeyLength]])
         {
-            [errorMessages addObject: invalidAlert];
+            [_errorMessages addObject: invalidAlert];
             return false;
         }
         
@@ -58,16 +62,16 @@
 
     -(BOOL)validateName: (NSString *)name
     {
-        NSUInteger minCharacters = 5;
-        NSUInteger maxCharacters = 60;
-        NSString *requiredAlert = @"Card holder name is required";
-        NSString *invalidAlert = @"Invalid card holder name";
-        NSString *maxAlert = [NSString
+        const NSUInteger minCharacters = 5;
+        const NSUInteger maxCharacters = 60;
+        const NSString *requiredAlert = @"Card holder name is required";
+        const NSString *invalidAlert = @"Invalid card holder name";
+        const NSString *maxAlert = [NSString
                               stringWithFormat: @"Card holder name should have less than %lu characters", (unsigned long)maxCharacters];
         
         if (name == nil)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
@@ -76,16 +80,16 @@
         
         if ([formattedName length] == 0)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         if ([formattedName length] < minCharacters)
         {
-            [errorMessages addObject: invalidAlert];
+            [_errorMessages addObject: invalidAlert];
             return false;
         }
         if ([formattedName length] > maxCharacters) {
-            [errorMessages addObject: maxAlert];
+            [_errorMessages addObject: maxAlert];
             return false;
         }
         return true;
@@ -93,17 +97,17 @@
 
     -(BOOL)validateNumber: (NSString *)cardNumber
     {
-        NSString *requiredAlert = @"Credit card number is required";
-        NSString *invalidAlert = @"Invalid credit card number";
+        const NSString *requiredAlert = @"Credit card number is required";
+        const NSString *invalidAlert = @"Invalid credit card number";
         
         if (cardNumber == nil)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
         NSError *error = nil;
-        NSRegularExpression *regex = [NSRegularExpression
+        const NSRegularExpression *regex = [NSRegularExpression
                                       regularExpressionWithPattern: @"\\s+|-"
                                       options:NSRegularExpressionCaseInsensitive error: &error];
         
@@ -116,14 +120,14 @@
         
         if ([modifiedCardNumber length] == 0)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
         // accept only digits after removing dashes or spaces
         
         if([self testRegExp:modifiedCardNumber withPattern:@"^\\d+$"] == 0) {
-            [errorMessages addObject: invalidAlert];
+            [_errorMessages addObject: invalidAlert];
             return false;
         }
         
@@ -153,7 +157,7 @@
         }
         
         if ((oddSum + evenSum) % 10 != 0) {
-            [errorMessages addObject: invalidAlert];
+            [_errorMessages addObject: invalidAlert];
             return false;
         }
         
@@ -165,8 +169,11 @@
         // Field is optional
         if (cvcNumber != nil) {
             
-            NSInteger validCVCNumberLength = 3;
-            NSString *invalidAlert = @"Invalid CVC number";
+            const NSString *invalidAlert = @"Invalid CVC number";
+            const NSInteger cardCVCLength = 3;
+            const NSInteger amexCardCVCLength = 4;
+            
+            NSInteger validCVCNumberLength = cardCVCLength;
             
             NSMutableString *formattedCVC = [NSMutableString stringWithString:cvcNumber];
             formattedCVC = [self trimString:formattedCVC];
@@ -177,12 +184,12 @@
             // If card Type Amex expect 4 digits CVC number
             
             if ([self testRegExp:formattedCardNumber withPattern:@"^3[47]"]) {
-                validCVCNumberLength = 4;
+                validCVCNumberLength = amexCardCVCLength;
             }
             
             
             if (![self testRegExp:formattedCVC withPattern:[NSString stringWithFormat:@"^\\d{%lu}$", (long)validCVCNumberLength]]) {
-                [errorMessages addObject: invalidAlert];
+                [_errorMessages addObject: invalidAlert];
                 return false;
             }
         }
@@ -193,19 +200,19 @@
     {
         BOOL missingData = false;
         
-        NSString *requiredMonthAlert = @"Expiration month is required";
-        NSString *requiredYearAlert = @"Expiration year is required";
-        NSString *invalidAlert = @"Invalid expiration date";
+        const NSString *requiredMonthAlert = @"Expiration month is required";
+        const NSString *requiredYearAlert = @"Expiration year is required";
+        const NSString *invalidAlert = @"Invalid expiration date";
         
         if (monthValue == nil)
         {
-            [errorMessages addObject: requiredMonthAlert];
+            [_errorMessages addObject: requiredMonthAlert];
             missingData = true;
         }
         
         if (yearValue == nil)
         {
-            [errorMessages addObject: requiredYearAlert];
+            [_errorMessages addObject: requiredYearAlert];
             missingData = true;
         }
         
@@ -221,13 +228,13 @@
         
         if ([formattedMonth length] == 0)
         {
-            [errorMessages addObject: requiredMonthAlert];
+            [_errorMessages addObject: requiredMonthAlert];
             missingData = true;
         }
         
         if ([formattedYear length] == 0)
         {
-            [errorMessages addObject: requiredYearAlert];
+            [_errorMessages addObject: requiredYearAlert];
             missingData = true;
         }
         
@@ -238,7 +245,7 @@
         if (![self testRegExp:formattedMonth withPattern:@"^\\d{1,2}$"] ||
             ![self testRegExp:formattedYear withPattern:@"^\\d{4}$"])
         {
-            [errorMessages addObject: invalidAlert];
+            [_errorMessages addObject: invalidAlert];
             return false;
         }
         
@@ -256,7 +263,7 @@
         expirationDate = [calendar dateByAddingComponents:dateComponents toDate:expirationDate options:0];
         
         if ([expirationDate compare:today] == NSOrderedAscending) {
-            [errorMessages addObject: invalidAlert];
+            [_errorMessages addObject: invalidAlert];
             return false;
         }
         
@@ -265,14 +272,14 @@
 
     -(BOOL)validateAddressStreet1: (NSString *)addressStreet1
     {
-        NSUInteger maxCharacters = 255;
-        NSString *requiredAlert = @"Address street 1 is required";
-        NSString *maxAlert = [NSString stringWithFormat:
+        const NSUInteger maxCharacters = 255;
+        const NSString *requiredAlert = @"Address street 1 is required";
+        const NSString *maxAlert = [NSString stringWithFormat:
                               @"Address street 1 value should have less than %lu characters", (unsigned long)maxCharacters];
         
         if (addressStreet1 == nil)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
@@ -281,12 +288,12 @@
         
         if ([formattedAddressStreet1 length] == 0)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
         if ([formattedAddressStreet1 length] > maxCharacters) {
-            [errorMessages addObject: maxAlert];
+            [_errorMessages addObject: maxAlert];
             return false;
         }
         return true;
@@ -297,15 +304,15 @@
         // Always optional
         if (addressStreet2 != nil)
         {
-            NSUInteger maxCharacters = 255;
-            NSString *maxAlert = [NSString stringWithFormat:
+            const NSUInteger maxCharacters = 255;
+            const NSString *maxAlert = [NSString stringWithFormat:
                                   @"Address street 2 value should have less than %lu characters", (unsigned long)maxCharacters];
             
             NSMutableString *formattedAddressStreet2 = [NSMutableString stringWithString:addressStreet2];
             formattedAddressStreet2 = [self trimString:formattedAddressStreet2];
             
             if ([formattedAddressStreet2 length] > maxCharacters) {
-                [errorMessages addObject: maxAlert];
+                [_errorMessages addObject: maxAlert];
                 return false;
             }
         }
@@ -314,14 +321,14 @@
 
     -(BOOL)validateAddressCity: (NSString *)city
     {
-        NSUInteger maxCharacters = 255;
-        NSString *requiredAlert = @"City value is required";
-        NSString *maxAlert = [NSString stringWithFormat:
+        const NSUInteger maxCharacters = 255;
+        const NSString *requiredAlert = @"City value is required";
+        const NSString *maxAlert = [NSString stringWithFormat:
                               @"City value should have less than %lu characters", (unsigned long)maxCharacters];
         
         if (city == nil)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
@@ -330,12 +337,12 @@
         
         if ([formattedCity length] == 0)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
         if ([formattedCity length] > maxCharacters) {
-            [errorMessages addObject: maxAlert];
+            [_errorMessages addObject: maxAlert];
             return false;
         }
         return true;
@@ -343,14 +350,14 @@
 
     -(BOOL)validateAddressState: (NSString *)state
     {
-        NSUInteger maxCharacters = 120;
-        NSString *requiredAlert = @"State value is required";
-        NSString *maxAlert = [NSString stringWithFormat:
+        const NSUInteger maxCharacters = 120;
+        const NSString *requiredAlert = @"State value is required";
+        const NSString *maxAlert = [NSString stringWithFormat:
                               @"State value should have less than %lu characters", (unsigned long)maxCharacters];
         
         if (state == nil)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
@@ -359,12 +366,12 @@
         
         if ([formattedState length] == 0)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
         if ([formattedState length] > maxCharacters) {
-            [errorMessages addObject: maxAlert];
+            [_errorMessages addObject: maxAlert];
             return false;
         }
         return true;
@@ -372,14 +379,14 @@
 
     -(BOOL)validateAddressCountryCode: (NSString *)countryCode
     {
-        NSUInteger numberOfCharacters = 3;
-        NSString *requiredAlert = @"Country code value is required";
-        NSString *invalidAlert = [NSString stringWithFormat:
+        const NSUInteger numberOfCharacters = 3;
+        const NSString *requiredAlert = @"Country code value is required";
+        const NSString *invalidAlert = [NSString stringWithFormat:
                                   @"Country code value should contain %lu alpha characters", (unsigned long)numberOfCharacters];
         
         if (countryCode == nil)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
@@ -388,7 +395,7 @@
         
         if ([formattedCountryCode length] == 0)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
@@ -396,7 +403,7 @@
              testRegExp:formattedCountryCode
              withPattern:[NSString stringWithFormat:@"^[A-Za-z]{%lu}$", (unsigned long)numberOfCharacters]] == 0)
         {
-            [errorMessages addObject: invalidAlert];
+            [_errorMessages addObject: invalidAlert];
             return false;
         }
         return true;
@@ -404,14 +411,14 @@
 
     -(BOOL)validateAddressPostalCode: (NSString *)postalCode
     {
-        NSUInteger maxCharacters = 20;
-        NSString *requiredAlert = @"Postal code is required";
-        NSString *maxAlert = [NSString stringWithFormat:
+        const NSUInteger maxCharacters = 20;
+        const NSString *requiredAlert = @"Postal code is required";
+        const NSString *maxAlert = [NSString stringWithFormat:
                               @"Postal code value should have less than %lu characters", (unsigned long)maxCharacters];
         
         if (postalCode == nil)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
@@ -420,12 +427,12 @@
         
         if ([formattedPostalCode length] == 0)
         {
-            [errorMessages addObject: requiredAlert];
+            [_errorMessages addObject: requiredAlert];
             return false;
         }
         
         if ([formattedPostalCode length] > maxCharacters) {
-            [errorMessages addObject: maxAlert];
+            [_errorMessages addObject: maxAlert];
             return false;
         }
         return true;
@@ -434,13 +441,13 @@
 
     -(NSMutableString *)trimString: (NSMutableString *)string
     {
-        NSError *error = nil;
+        const NSError *error = nil;
         
-        NSRegularExpression *regex = [NSRegularExpression
+        const NSRegularExpression *regex = [NSRegularExpression
                                       regularExpressionWithPattern: @"^\\s+|\\s+$"
                                       options:NSRegularExpressionCaseInsensitive error: &error];
         
-        NSRegularExpression *regex2 = [NSRegularExpression
+        const NSRegularExpression *regex2 = [NSRegularExpression
                                        regularExpressionWithPattern: @"\\s+"
                                        options:NSRegularExpressionCaseInsensitive error: &error];
         
@@ -461,9 +468,9 @@
 
     -(BOOL)testRegExp: (NSString *)string withPattern:(NSString *) pattern
     {
-        NSError *error = nil;
+        const NSError *error = nil;
         
-        NSRegularExpression *regex = [NSRegularExpression
+        const NSRegularExpression *regex = [NSRegularExpression
                                       regularExpressionWithPattern: pattern
                                       options:NSRegularExpressionCaseInsensitive error: &error];
         
@@ -477,9 +484,9 @@
 
     -(void)requestToken: (NSDictionary *)formValues completion: (void (^) (NSDictionary *, NSError *)) completion
     {
-        errorMessages = [NSMutableArray arrayWithCapacity:1];
+        _errorMessages = [NSMutableArray arrayWithCapacity:1];
         
-        [self validateKey: tokenizationKey];
+        [self validateKey: _tokenizationKey];
         [self validateName: [formValues objectForKey:@"name"]];
         [self validateNumber: [formValues objectForKey:@"number"]];
         [self validateCVC: [formValues objectForKey:@"cvc"]  card: [formValues objectForKey:@"number"]];
@@ -495,12 +502,12 @@
             [self validateAddressPostalCode: [addressData objectForKey:@"addressPostalCode"]];
         }
         
-        if ([errorMessages count] > 0) {
+        if ([_errorMessages count] > 0) {
             id objectInstance;
             NSUInteger indexKey = 0U;
             
             NSMutableDictionary *errorsDictionary = [[NSMutableDictionary alloc] init];
-            for (objectInstance in errorMessages)
+            for (objectInstance in _errorMessages)
                 [errorsDictionary setObject:objectInstance forKey:[NSString stringWithFormat:@"Error-%lu", (unsigned long)indexKey++]];
             
             completion(nil,[NSError errorWithDomain:NSURLErrorDomain code:0 userInfo:errorsDictionary]);
@@ -508,7 +515,7 @@
         else
         {
             NSDictionary *postData =@{
-                                      @"tokenization_key": tokenizationKey,
+                                      @"tokenization_key": _tokenizationKey,
                                       @"token": @{
                                               @"one_time": @"false",
                                               @"payment_method": @{
