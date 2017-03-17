@@ -15,7 +15,7 @@
 
 @implementation linioPayViewController
 
-LinioPayTokenizer *tokenizer;
+const LinioPayTokenizer *tokenizer;
 
 - (void)viewDidLoad
 {
@@ -23,7 +23,6 @@ LinioPayTokenizer *tokenizer;
 	// Do any additional setup after loading the view, typically from a nib.
 
     tokenizer = [[LinioPayTokenizer alloc] initWithKey:@"test_0618f5c21603cd9d33ba8a8f0c9e2446283"];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,14 +31,14 @@ LinioPayTokenizer *tokenizer;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)submitForm:(id)sender {
+- (IBAction)submitForm:(id)sender
+{
     [self makeRequest];
 }
 
-- (IBAction)DismissKeyboard:(id)sender {
-
+- (IBAction)DismissKeyboard:(id)sender
+{
     [self resignFirstResponder];
-
 }
 
 - (void)makeRequest {
@@ -59,28 +58,28 @@ LinioPayTokenizer *tokenizer;
                @"addressCountryCode": addressCountryCodeField.text,
                @"addressPostalCode": addressPostalCodeField.text,
                },
-       } completion: ^(NSDictionary *data, NSError *error){
+       }
+    completion: ^(NSDictionary *data, NSError *error)
+    {
+        NSMutableString *message = [[NSMutableString alloc] init];
+        if(error!=nil)
+        {
+            message = [NSMutableString stringWithFormat:@"%@", [error userInfo]];
+        }
+        else
+        {
+            message = [NSMutableString stringWithFormat:@"%@", data];
+        }
 
-           NSMutableString *message = [[NSMutableString alloc] init];
-           if(error!=nil)
-           {
-               message = [NSMutableString stringWithFormat:@"%@", error.userInfo];
-           }
-           else
-           {
-               message = [NSMutableString stringWithFormat:@"%@", data];
-           }
-
-           dispatch_async(dispatch_get_main_queue(), ^{
-               UIAlertView *alert = [[UIAlertView alloc]
-                                     initWithTitle:@"Tokenizer Response"
-                                     message:[NSString stringWithFormat:@"%@", message]
-                                     delegate:nil
-                                     cancelButtonTitle:@"Dismiss"
-                                     otherButtonTitles:nil];
-               [alert show];
-           });
-
-       }];
+        dispatch_async(dispatch_get_main_queue(),
+        ^{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tokenizer Response"
+                                                            message:[NSString stringWithFormat:@"%@", message]
+                                                           delegate:nil cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        });
+    }];
 }
+
 @end
