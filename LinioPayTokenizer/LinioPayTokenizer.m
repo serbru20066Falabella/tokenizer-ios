@@ -7,10 +7,10 @@
 //
 
 #import "LinioPayTokenizer.h"
+#import "LinioPayTokenizerConstants.h"
 
 @implementation LinioPayTokenizer
 
-    NSString *apiPath = @"https://vault.liniopay.com/token";
     NSMutableArray *errorMessages;
     NSString *tokenizationKey;
 
@@ -531,7 +531,7 @@
             
             // Else submit form
             
-            NSURL *apiURL = [NSURL URLWithString: apiPath];
+            NSURL *apiURL = [NSURL URLWithString: LPTS_API_PATH];
             
             NSMutableURLRequest* urlRequest = [NSMutableURLRequest requestWithURL:apiURL];
             [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];

@@ -32,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		0668E2582BCA88D4429DE33F0E8B8317 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		075E64B61E7B502A00188310 /* LinioPayTokenizerConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinioPayTokenizerConstants.h; sourceTree = "<group>"; };
 		07DA9A3B1E78C26900EE9E4A /* LinioPayTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinioPayTokenizer.h; sourceTree = "<group>"; };
 		07DA9A3C1E78C26900EE9E4A /* LinioPayTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinioPayTokenizer.m; sourceTree = "<group>"; };
 		0F7D97A752F54F4FB6802EC030BC44E0 /* Pods-LinioPayTokenizer_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LinioPayTokenizer_Example-resources.sh"; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 			children = (
 				07DA9A3B1E78C26900EE9E4A /* LinioPayTokenizer.h */,
 				07DA9A3C1E78C26900EE9E4A /* LinioPayTokenizer.m */,
+				075E64B61E7B502A00188310 /* LinioPayTokenizerConstants.h */,
 			);
 			path = LinioPayTokenizer;
 			sourceTree = "<group>";
