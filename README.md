@@ -6,7 +6,7 @@ View the [LinioPay Docs](https://docs.liniopay.com/index.html) or browse the [Gi
 
 Client Setup
 ----------
-View the [Client Setup](docs/Client Setup.md) for a detail implementation guide.
+View the [Client Setup](docs/Client%20Setup.md) for a detail implementation guide.
 
 Sample
 ----------
