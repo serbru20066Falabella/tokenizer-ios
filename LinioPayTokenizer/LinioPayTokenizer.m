@@ -561,19 +561,19 @@
     _errorMessages = [NSMutableArray arrayWithCapacity:1];
     
     [self validateKey:_tokenizationKey];
-    [self validateName:[formValues objectForKey:@"name"]];
+    [self validateName:[formValues objectForKey:@"cardholder"]];
     [self validateNumber:[formValues objectForKey:@"number"]];
     [self validateCVC:[formValues objectForKey:@"cvc"]  card:[formValues objectForKey:@"number"]];
-    [self validateExpDate:[formValues objectForKey:@"month"] year:[formValues objectForKey:@"year"]];
+    [self validateExpDate:[formValues objectForKey:@"expiration_month"] year:[formValues objectForKey:@"expiration_year"]];
     if ([formValues objectForKey:@"address"] != nil)
     {
         NSDictionary *addressData = [formValues objectForKey:@"address"];
-        [self validateAddressStreet1:[addressData objectForKey:@"addressStreet1"]];
-        [self validateAddressStreet2:[addressData objectForKey:@"addressStreet2"]];
-        [self validateAddressCity:[addressData objectForKey:@"addressCity"]];
-        [self validateAddressState:[addressData objectForKey:@"addressState"]];
-        [self validateAddressCountryCode:[addressData objectForKey:@"addressCountryCode"]];
-        [self validateAddressPostalCode:[addressData objectForKey:@"addressPostalCode"]];
+        [self validateAddressStreet1:[addressData objectForKey:@"street1"]];
+        [self validateAddressStreet2:[addressData objectForKey:@"street2"]];
+        [self validateAddressCity:[addressData objectForKey:@"city"]];
+        [self validateAddressState:[addressData objectForKey:@"state"]];
+        [self validateAddressCountryCode:[addressData objectForKey:@"country_code"]];
+        [self validateAddressPostalCode:[addressData objectForKey:@"postal_code"]];
     }
     
     if ([_errorMessages count] > 0)

@@ -45,18 +45,18 @@ const LinioPayTokenizer *tokenizer;
     NSLog(@"Submitting form");
     [tokenizer requestToken:
      @{
-       @"name": nameField.text,
+       @"cardholder": nameField.text,
        @"number": numberField.text,
        @"cvc": cvcField.text,
-       @"month": monthField.text,
-       @"year": yearField.text,
+       @"expiration_month": monthField.text,
+       @"expiration_year": yearField.text,
        @"address": @{
-               @"addressStreet1": addressLine1Field.text,
-               @"addressStreet2": addressLine2Field.text,
-               @"addressCity": addressCityField.text,
-               @"addressState": addressStateField.text,
-               @"addressCountryCode": addressCountryCodeField.text,
-               @"addressPostalCode": addressPostalCodeField.text,
+               @"street1": addressLine1Field.text,
+               @"street2": addressLine2Field.text,
+               @"city": addressCityField.text,
+               @"state": addressStateField.text,
+               @"country_code": addressCountryCodeField.text,
+               @"postal_code": addressPostalCodeField.text,
                },
        }
     completion: ^(NSDictionary *data, NSError *error)
