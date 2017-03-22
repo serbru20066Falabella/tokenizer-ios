@@ -617,18 +617,21 @@
         
         // Else submit form
         
-        NSURL *apiURL = [NSURL URLWithString:LPTS_API_PATH];
+        NSURL * apiURL = [NSURL URLWithString:LPTS_API_PATH];
         
-        NSMutableURLRequest* urlRequest = [NSMutableURLRequest requestWithURL:apiURL];
+        NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:apiURL];
         
         [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
         [urlRequest setHTTPMethod:@"POST"];
         [urlRequest setHTTPBody:jsonData];
+
+        NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject
+                                                                     delegate:nil
+                                                                delegateQueue:[NSOperationQueue mainQueue]];
         
-        [NSURLConnection sendAsynchronousRequest:urlRequest
-                                           queue:[[NSOperationQueue alloc] init]
-                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-        {
+        NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:urlRequest
+                                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error!=nil)
             {
                 completion(nil,error);
@@ -650,6 +653,8 @@
                 }
             }
         }];
+        
+        [dataTask resume];
     }
 }
 
