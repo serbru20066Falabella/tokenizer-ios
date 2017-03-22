@@ -289,6 +289,11 @@
     XCTAssertFalse([self.tokenizer validateAddressPostalCode:@""], @"Returns false when an empty postal code value is passed");
 }
 
+- (void)testValidateAddressPostalCodeWithAlphaCharacters
+{
+    XCTAssertFalse([self.tokenizer validateAddressPostalCode:@"abcde"], @"Returns false whenpostal code value containing alpha characters is passed");
+}
+
 - (void)testValidateAddressPostalCodeWithStringLengthMoreThan3
 {
     XCTAssertFalse([self.tokenizer validateAddressPostalCode:@"123456789012345678901"], @"Returns false when a postal code string value length > 20 is passed");

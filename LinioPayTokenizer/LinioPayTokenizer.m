@@ -495,6 +495,10 @@
                                                            code:ERROR_CODE_CHAR_MAX_LIMIT_POSTAL_CODE
                                                        userInfo:@{ NSLocalizedDescriptionKey : [NSString stringWithFormat:ERROR_DESC_CHAR_MAX_LIMIT_POSTAL_CODE, (unsigned long)maxCharacters] }];
     
+    const NSError *invalidError = [NSError errorWithDomain:ERROR_DOMAIN
+                                                      code:ERROR_CODE_INVALID_POSTAL_CODE
+                                                  userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_POSTAL_CODE }];
+    
     if (postalCode == nil)
     {
         [_errorMessages addObject:requiredError];
@@ -506,6 +510,12 @@
     if ([formattedPostalCode length] == 0)
     {
         [_errorMessages addObject:requiredError];
+        return false;
+    }
+    
+    if ([self testRegExp:formattedPostalCode withPattern:[NSString stringWithFormat:@"^\\d+$"]] == 0)
+    {
+        [_errorMessages addObject:invalidError];
         return false;
     }
     

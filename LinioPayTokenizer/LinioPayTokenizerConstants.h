@@ -57,6 +57,7 @@
 #define ERROR_CODE_INVALID_YEAR                 440
 #define ERROR_CODE_INVALID_EXPIRATION           450
 #define ERROR_CODE_INVALID_COUNTRY_CODE         490
+#define ERROR_CODE_INVALID_POSTAL_CODE          495
 
 #define ERROR_CODE_CHAR_MAX_LIMIT_NAME          505
 #define ERROR_CODE_CHAR_MAX_LIMIT_STREET_1      560
@@ -85,6 +86,7 @@
 #define ERROR_DESC_INVALID_YEAR                 @"Invalid Expiration Year - Should Contain 4 Numeric Characters"
 #define ERROR_DESC_INVALID_EXPIRATION           @"Invalid Expiration date - Should Containt Current or Future Date"
 #define ERROR_DESC_INVALID_COUNTRY_CODE         @"Invalid Country Code - Should Contain 3 Characters Country Code"
+#define ERROR_DESC_INVALID_POSTAL_CODE          @"Invalid Postal Code - Should Contain Only Numeric Characters"
 
 #define ERROR_DESC_CHAR_MAX_LIMIT_NAME          @"Card Holder Name Should Have Less Than %lu Characters"
 #define ERROR_DESC_CHAR_MAX_LIMIT_STREET_1      @"Address Street line 1 Should Have Less Than %lu Characters"
