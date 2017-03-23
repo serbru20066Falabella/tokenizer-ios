@@ -6,14 +6,14 @@
 //  Copyright (c) 2017 omargon. All rights reserved.
 //
 
-#import "linioPayViewController.h"
+#import "LinioPayViewController.h"
 #import "LinioPayTokenizer.h"
 
-@interface linioPayViewController ()
+@interface LinioPayViewController ()
 
 @end
 
-@implementation linioPayViewController
+@implementation LinioPayViewController
 
 const LinioPayTokenizer *tokenizer;
 

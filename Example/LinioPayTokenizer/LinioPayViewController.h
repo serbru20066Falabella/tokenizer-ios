@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface linioPayViewController : UIViewController{
+@interface LinioPayViewController : UIViewController{
 
     IBOutlet UITextField *nameField;
     IBOutlet UITextField *numberField;
