@@ -9,20 +9,20 @@
 #import "LinioPayViewController.h"
 #import "LinioPayTokenizer.h"
 
-@interface LinioPayViewController ()
+@interface LinioPayViewController()
+
+@property (nonatomic, readonly) LinioPayTokenizer *tokenizer;
 
 @end
 
 @implementation LinioPayViewController
-
-const LinioPayTokenizer *tokenizer;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
-    tokenizer = [[LinioPayTokenizer alloc] initWithKey:@"test_0618f5c21603cd9d33ba8a8f0c9e2446283"];
+    _tokenizer = [[LinioPayTokenizer alloc] initWithKey:@"test_0618f5c21603cd9d33ba8a8f0c9e2446283"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,14 +36,15 @@ const LinioPayTokenizer *tokenizer;
     [self makeRequest];
 }
 
-- (IBAction)DismissKeyboard:(id)sender
+- (IBAction)dismissKeyboard:(id)sender
 {
     [self resignFirstResponder];
 }
 
-- (void)makeRequest {
+- (void)makeRequest
+{
     NSLog(@"Submitting form");
-    [tokenizer requestToken:
+    [_tokenizer requestToken:
      @{
        @"cardholder": nameField.text,
        @"number": numberField.text,

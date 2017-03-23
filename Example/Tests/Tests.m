@@ -12,7 +12,6 @@
 @interface Tests : XCTestCase
 
 @property (strong, nonatomic) LinioPayTokenizer *tokenizer;
-
 @property (strong, nonatomic) NSString *stringWithMoreThan255Characters;
 
 @end
@@ -116,7 +115,6 @@
     XCTAssertFalse([self.tokenizer validateNumber:nil], @"Returns false when a nil or no number value is passed");
 }
 
-
 - (void)testValidateCardNumberWithStringLengthEqual0
 {
     XCTAssertFalse([self.tokenizer validateNumber:@""], @"Returns false when an empty number value is passed");
@@ -143,7 +141,6 @@
     XCTAssertFalse([self.tokenizer validateCVC:@"1234" card:@"4111111111111111"], @"Returns false with invalid CVC and credit card number conbination");
     XCTAssertFalse([self.tokenizer validateCVC:@"123" card:@"378282246310005"], @"Returns true with invalid CVC and AMEX credit card number conbination");
 }
-
 
 - (void)testValidateExpDateWithFutureDate
 {
@@ -187,7 +184,6 @@
 {
     XCTAssertFalse([self.tokenizer validateAddressStreet1:@""], @"Returns false when an empty address street 1 value is passed");
 }
-
 
 - (void)testValidateAddressStreet1WithStringLengthMoreThan255
 {

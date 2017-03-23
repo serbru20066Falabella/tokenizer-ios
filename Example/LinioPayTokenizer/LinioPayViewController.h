@@ -25,6 +25,6 @@
 }
 
 - (IBAction)submitForm:(id)sender;
-- (IBAction)DismissKeyboard:(id)sender;
+- (IBAction)dismissKeyboard:(id)sender;
 
 @end
