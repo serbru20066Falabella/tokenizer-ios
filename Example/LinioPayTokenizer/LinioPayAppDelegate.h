@@ -1,5 +1,5 @@
 //
-//  linioPayAppDelegate.h
+//  LinioPayAppDelegate.h
 //  LinioPayTokenizer
 //
 //  Created by omargon on 03/14/2017.
@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface linioPayAppDelegate : UIResponder <UIApplicationDelegate>
+@interface LinioPayAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

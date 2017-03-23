@@ -1,14 +1,14 @@
 //
-//  linioPayAppDelegate.m
+//  LinioPayAppDelegate.m
 //  LinioPayTokenizer
 //
 //  Created by omargon on 03/14/2017.
 //  Copyright (c) 2017 omargon. All rights reserved.
 //
 
-#import "linioPayAppDelegate.h"
+#import "LinioPayAppDelegate.h"
 
-@implementation linioPayAppDelegate
+@implementation LinioPayAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

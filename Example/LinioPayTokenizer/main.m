@@ -7,11 +7,11 @@
 //
 
 @import UIKit;
-#import "linioPayAppDelegate.h"
+#import "LinioPayAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([linioPayAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([LinioPayAppDelegate class]));
     }
 }
