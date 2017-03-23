@@ -18,6 +18,19 @@
 
 @implementation LinioPayTokenizer
 
+const NSString *FORM_DICT_KEY_NAME = @"cardholder";
+const NSString *FORM_DICT_KEY_NUMBER = @"number";
+const NSString *FORM_DICT_KEY_CVC = @"cvc";
+const NSString *FORM_DICT_KEY_MONTH = @"expiration_month";
+const NSString *FORM_DICT_KEY_YEAR = @"expiration_year";
+const NSString *FORM_DICT_KEY_ADDRESS = @"address";
+const NSString *FORM_DICT_KEY_STREET_1 = @"street1";
+const NSString *FORM_DICT_KEY_STREET_2 = @"street2";
+const NSString *FORM_DICT_KEY_CITY = @"city";
+const NSString *FORM_DICT_KEY_STATE = @"state";
+const NSString *FORM_DICT_KEY_COUNTRY_CODE = @"country_code";
+const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
+
 -(id)initWithKey:(NSString *)key
 {
     self = [super init];
@@ -571,19 +584,19 @@
     _errorMessages = [NSMutableArray arrayWithCapacity:1];
     
     [self validateKey:_tokenizationKey];
-    [self validateName:[formValues objectForKey:@"cardholder"]];
-    [self validateNumber:[formValues objectForKey:@"number"]];
-    [self validateCVC:[formValues objectForKey:@"cvc"]  card:[formValues objectForKey:@"number"]];
-    [self validateExpDate:[formValues objectForKey:@"expiration_month"] year:[formValues objectForKey:@"expiration_year"]];
-    if ([formValues objectForKey:@"address"] != nil)
+    [self validateName:[formValues objectForKey:FORM_DICT_KEY_NAME]];
+    [self validateNumber:[formValues objectForKey:FORM_DICT_KEY_NUMBER]];
+    [self validateCVC:[formValues objectForKey:FORM_DICT_KEY_CVC]  card:[formValues objectForKey:FORM_DICT_KEY_NUMBER]];
+    [self validateExpDate:[formValues objectForKey:FORM_DICT_KEY_MONTH] year:[formValues objectForKey:FORM_DICT_KEY_YEAR]];
+    if ([formValues objectForKey:FORM_DICT_KEY_ADDRESS] != nil)
     {
-        NSDictionary *addressData = [formValues objectForKey:@"address"];
-        [self validateAddressStreet1:[addressData objectForKey:@"street1"]];
-        [self validateAddressStreet2:[addressData objectForKey:@"street2"]];
-        [self validateAddressCity:[addressData objectForKey:@"city"]];
-        [self validateAddressState:[addressData objectForKey:@"state"]];
-        [self validateAddressCountryCode:[addressData objectForKey:@"country_code"]];
-        [self validateAddressPostalCode:[addressData objectForKey:@"postal_code"]];
+        NSDictionary *addressData = [formValues objectForKey:FORM_DICT_KEY_ADDRESS];
+        [self validateAddressStreet1:[addressData objectForKey:FORM_DICT_KEY_STREET_1]];
+        [self validateAddressStreet2:[addressData objectForKey:FORM_DICT_KEY_STREET_2]];
+        [self validateAddressCity:[addressData objectForKey:FORM_DICT_KEY_CITY]];
+        [self validateAddressState:[addressData objectForKey:FORM_DICT_KEY_STATE]];
+        [self validateAddressCountryCode:[addressData objectForKey:FORM_DICT_KEY_COUNTRY_CODE]];
+        [self validateAddressPostalCode:[addressData objectForKey:FORM_DICT_KEY_POSTAL_CODE]];
     }
     
     if ([_errorMessages count] > 0)

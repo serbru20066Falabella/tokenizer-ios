@@ -10,6 +10,19 @@
 
 @interface LinioPayTokenizer : NSObject
 
+extern const NSString *FORM_DICT_KEY_NAME;
+extern const NSString *FORM_DICT_KEY_NUMBER;
+extern const NSString *FORM_DICT_KEY_CVC;
+extern const NSString *FORM_DICT_KEY_MONTH;
+extern const NSString *FORM_DICT_KEY_YEAR;
+extern const NSString *FORM_DICT_KEY_ADDRESS;
+extern const NSString *FORM_DICT_KEY_STREET_1;
+extern const NSString *FORM_DICT_KEY_STREET_2;
+extern const NSString *FORM_DICT_KEY_CITY;
+extern const NSString *FORM_DICT_KEY_STATE;
+extern const NSString *FORM_DICT_KEY_COUNTRY_CODE;
+extern const NSString *FORM_DICT_KEY_POSTAL_CODE;
+
 - (id)initWithKey:(NSString *)key;
 - (BOOL)validateKey:(NSString *)key;
 - (BOOL)validateName:(NSString*)name;

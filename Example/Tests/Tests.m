@@ -298,18 +298,18 @@
 - (void)testRequestTokenWithValidData
 {
     [self.tokenizer requestToken:@{
-                                   @"cardholder": @"Omar Gonzalez",
-                                   @"number": @"4111111111111111",
-                                   @"cvc": @"123",
-                                   @"expiration_month": @"02",
-                                   @"expiration_year": @"3012",
-                                   @"address": @{
-                                           @"street1": @"Here",
-                                           @"street2": @"",
-                                           @"city": @"Miami",
-                                           @"state": @"Florida",
-                                           @"country_code": @"USA",
-                                           @"postal_code": @"33178",
+                                   FORM_DICT_KEY_NAME: @"Omar Gonzalez",
+                                   FORM_DICT_KEY_NUMBER: @"4111111111111111",
+                                   FORM_DICT_KEY_CVC: @"123",
+                                   FORM_DICT_KEY_MONTH: @"02",
+                                   FORM_DICT_KEY_YEAR: @"3012",
+                                   FORM_DICT_KEY_ADDRESS: @{
+                                           FORM_DICT_KEY_STREET_1: @"Here",
+                                           FORM_DICT_KEY_STREET_2: @"",
+                                           FORM_DICT_KEY_CITY: @"Miami",
+                                           FORM_DICT_KEY_STATE: @"Florida",
+                                           FORM_DICT_KEY_COUNTRY_CODE: @"USA",
+                                           FORM_DICT_KEY_POSTAL_CODE: @"33178",
                                    },
                                }
                       completion: ^(NSDictionary *data, NSError *error)
@@ -322,11 +322,11 @@
 - (void)testRequestTokenWithValidDataButNoAddress
 {
     [self.tokenizer requestToken:@{
-                                   @"cardholder": @"Omar Gonzalez",
-                                   @"number": @"4111111111111111",
-                                   @"cvc": @"123",
-                                   @"expiration_month": @"02",
-                                   @"expiration_year": @"3012",
+                                   FORM_DICT_KEY_NAME: @"Omar Gonzalez",
+                                   FORM_DICT_KEY_NUMBER: @"4111111111111111",
+                                   FORM_DICT_KEY_CVC: @"123",
+                                   FORM_DICT_KEY_MONTH: @"02",
+                                   FORM_DICT_KEY_YEAR: @"3012",
                                    }
                       completion: ^(NSDictionary *data, NSError *error)
      {
@@ -338,11 +338,11 @@
 - (void)testRequestTokenWithOneInvalidField
 {
     [self.tokenizer requestToken:@{
-                                   @"cardholder": @"Omar Gonzalez",
-                                   @"number": @"4111111111111111",
-                                   @"cvc": @"123",
-                                   @"expiration_month": @"223", // Invalid field
-                                   @"expiration_year": @"3012",
+                                   FORM_DICT_KEY_NAME: @"Omar Gonzalez",
+                                   FORM_DICT_KEY_NUMBER: @"4111111111111111",
+                                   FORM_DICT_KEY_CVC: @"123",
+                                   FORM_DICT_KEY_MONTH: @"223", // Invalid Expiration Month
+                                   FORM_DICT_KEY_YEAR: @"3012",
                                    }
                       completion: ^(NSDictionary *data, NSError *error)
      {

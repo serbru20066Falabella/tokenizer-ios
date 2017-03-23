@@ -46,18 +46,18 @@
     NSLog(@"Submitting form");
     [_tokenizer requestToken:
      @{
-       @"cardholder": nameField.text,
-       @"number": numberField.text,
-       @"cvc": cvcField.text,
-       @"expiration_month": monthField.text,
-       @"expiration_year": yearField.text,
-       @"address": @{
-               @"street1": addressLine1Field.text,
-               @"street2": addressLine2Field.text,
-               @"city": addressCityField.text,
-               @"state": addressStateField.text,
-               @"country_code": addressCountryCodeField.text,
-               @"postal_code": addressPostalCodeField.text,
+       FORM_DICT_KEY_NAME: nameField.text,
+       FORM_DICT_KEY_NUMBER: numberField.text,
+       FORM_DICT_KEY_CVC: cvcField.text,
+       FORM_DICT_KEY_MONTH: monthField.text,
+       FORM_DICT_KEY_YEAR: yearField.text,
+       FORM_DICT_KEY_ADDRESS: @{
+               FORM_DICT_KEY_STREET_1: addressLine1Field.text,
+               FORM_DICT_KEY_STREET_2: addressLine2Field.text,
+               FORM_DICT_KEY_CITY: addressCityField.text,
+               FORM_DICT_KEY_STATE: addressStateField.text,
+               FORM_DICT_KEY_COUNTRY_CODE: addressCountryCodeField.text,
+               FORM_DICT_KEY_POSTAL_CODE: addressPostalCodeField.text,
                },
        }
     completion: ^(NSDictionary *data, NSError *error)

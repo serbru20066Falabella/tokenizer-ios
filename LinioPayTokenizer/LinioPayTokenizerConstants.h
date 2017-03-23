@@ -8,22 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@interface LinioPayTokenizerConstants : NSObject
+
+@end
+
 #define LPTS_API_PATH   @"https://vault.liniopay.com/token"
 #define ERROR_DOMAIN    @"com.LinioPay.Tokenizer.ErrorDomain"
-
-#define FORM_DICT_KEY_NAME          @"name"
-#define FORM_DICT_KEY_NUMBER        @"number"
-#define FORM_DICT_KEY_CVC           @"cvc"
-#define FORM_DICT_KEY_MONTH         @"month"
-#define FORM_DICT_KEY_YEAR          @"year"
-#define FORM_DICT_KEY_ADDRESS       @"address"
-#define FORM_DICT_KEY_STREET_1      @"addressStreet1"
-#define FORM_DICT_KEY_STREET_2      @"addressStreet2"
-#define FORM_DICT_KEY_CITY          @"addressCity"
-#define FORM_DICT_KEY_STATE         @"addressState"
-#define FORM_DICT_KEY_COUNTRY_CODE  @"addressCountryCode"
-#define FORM_DICT_KEY_POSTAL_CODE   @"addressPostalCode"
-
 
 #define CHAR_LENGTH_KEY             40
 #define CHAR_LENGTH_CVC             3

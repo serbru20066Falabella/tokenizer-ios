@@ -50,54 +50,56 @@ Request a credit card token once your payment is ready to be submitted via the L
 -(void)requestToken: (NSDictionary *)formValues completion: (void (^)(NSDictionary* data, NSError* error))completion
 ```
 
-**The data dictionary `formValues` parameter should adhere to the following structure and expected keys naming convention:**
+**The data dictionary `formValues` parameter should adhere to the following structure and expected keys defined by corresponding string constants:**
 
 ```objectivec
  @{
-       @"cardholder": nameField.text,
-       @"number": numberField.text,
-       @"cvc": cvcField.text,
-       @"expiration_month": monthField.text,
-       @"expiration_year": yearField.text,
-       @"address": @{
-               @"street1": addressLine1Field.text,
-               @"street2": addressLine2Field.text,
-               @"city": addressCityField.text,
-               @"state": addressStateField.text,
-               @"country_code": addressCountryCodeField.text,
-               @"postal_code": addressPostalCodeField.text,
-       },
- }
+   FORM_DICT_KEY_NAME: nameField.text,
+   FORM_DICT_KEY_NUMBER: numberField.text,
+   FORM_DICT_KEY_CVC: cvcField.text,
+   FORM_DICT_KEY_MONTH: monthField.text,
+   FORM_DICT_KEY_YEAR: yearField.text,
+   FORM_DICT_KEY_ADDRESS: @{
+           FORM_DICT_KEY_STREET_1: addressLine1Field.text,
+           FORM_DICT_KEY_STREET_2: addressLine2Field.text,
+           FORM_DICT_KEY_CITY: addressCityField.text,
+           FORM_DICT_KEY_STATE: addressStateField.text,
+           FORM_DICT_KEY_COUNTRY_CODE: addressCountryCodeField.text,
+           FORM_DICT_KEY_POSTAL_CODE: addressPostalCodeField.text,
+           },
+   }
 ```
 **The `address` and it's child terms below are all optional, but if address key is present child dictionary object is required during validation:**
 
 ```objectivec
-@"address": @{
-   @"street1": addressLine1Field.text,
-   @"street2": addressLine2Field.text,
-   @"city": addressCityField.text,
-   @"state": addressStateField.text,
-   @"country_code": addressCountryCodeField.text,
-   @"postal_code": addressPostalCodeField.text,
+FORM_DICT_KEY_ADDRESS: @{
+       FORM_DICT_KEY_STREET_1: addressLine1Field.text,
+       FORM_DICT_KEY_STREET_2: addressLine2Field.text,
+       FORM_DICT_KEY_CITY: addressCityField.text,
+       FORM_DICT_KEY_STATE: addressStateField.text,
+       FORM_DICT_KEY_COUNTRY_CODE: addressCountryCodeField.text,
+       FORM_DICT_KEY_POSTAL_CODE: addressPostalCodeField.text,
+       },
 },
+
 ```
 
 **The `street2` is always optional**
 
 Following is a table describing each form field's validation criteria:
  
-| Dicitionary Key | Description | Criteria |
-| --- | --- | --- |
-| `cardholder` | Card holder full name | String, 5-60 characters |
-| `number` | Credit card number | Valid credit card number string, 13-16 numeric characters |
-| `expiration_month` | Credit card expiration date 2 digits month | String, 2 numeric characters |
-| `expiration_year` | Credit card expiration date 4 digits year | String, 4 numeric characters |
-| `street1` | Credit card billing address street 1st line | String, 255 characters maximum  |
-| `street2` | Credit card billing address street __(optional)__ 2nd line | String, 255 characters maximum |
-| `city` | Credit card billing address city | String, 255 characters maximum |
-| `state` | Credit card billing address state | String, 120 characters maximum |
-| `country_code` | Credit card billing address 3 characters [ISO Alpha-3 Code](http://www.nationsonline.org/oneworld/country_code_list.htm) country code |  String, 3 characters |
-| `postal_code` | Credit card billing address postal code |  String, 20 characters maximum |
+| Dictionary Costant | Dictionary Key | Description | Criteria |
+| --- | --- | --- | --- |
+| `FORM_DICT_KEY_NAME` | `cardholder` | Card holder full name | String, 5-60 characters |
+| `FORM_DICT_KEY_NUMBER` | `number` | Credit card number | Valid credit card number string, 13-16 numeric characters |
+| `FORM_DICT_KEY_MONTH` | `expiration_month` | Credit card expiration date 2 digits month | String, 2 numeric characters |
+| `FORM_DICT_KEY_YEAR` | `expiration_year` | Credit card expiration date 4 digits year | String, 4 numeric characters |
+| `FORM_DICT_KEY_STREET_1` | `street1` | Credit card billing address street 1st line | String, 255 characters maximum  |
+| `FORM_DICT_KEY_STREET_2` | `street2` | Credit card billing address street __(optional)__ 2nd line | String, 255 characters maximum |
+| `FORM_DICT_KEY_CITY` | `city` | Credit card billing address city | String, 255 characters maximum |
+| `FORM_DICT_KEY_STATE` | `state` | Credit card billing address state | String, 120 characters maximum |
+| `FORM_DICT_KEY_COUNTRY_CODE` | `country_code` | Credit card billing address 3 characters [ISO Alpha-3 Code](http://www.nationsonline.org/oneworld/country_code_list.htm) country code |  String, 3 characters |
+| `FORM_DICT_KEY_POSTAL_CODE` | `postal_code` | Credit card billing address postal code |  String, 20 characters maximum |
 
 The second `completion` parameter of the `requestToken` method is a callback function
 that will process the API response as in:

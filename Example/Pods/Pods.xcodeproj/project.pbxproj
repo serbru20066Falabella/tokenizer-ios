@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0724628B1E846EED00690A6C /* LinioPayTokenizerConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0724628A1E846EED00690A6C /* LinioPayTokenizerConstants.m */; };
 		07DA9A3D1E78C26900EE9E4A /* LinioPayTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DA9A3B1E78C26900EE9E4A /* LinioPayTokenizer.h */; };
 		07DA9A3E1E78C26900EE9E4A /* LinioPayTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DA9A3C1E78C26900EE9E4A /* LinioPayTokenizer.m */; };
 		0A45FEAECAA6CD39B3FC0405FE176B60 /* Pods-LinioPayTokenizer_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AE77F8E0D70C6A1A02988CE692C3D8 /* Pods-LinioPayTokenizer_Tests-dummy.m */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		0668E2582BCA88D4429DE33F0E8B8317 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0724628A1E846EED00690A6C /* LinioPayTokenizerConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinioPayTokenizerConstants.m; sourceTree = "<group>"; };
 		075E64B61E7B502A00188310 /* LinioPayTokenizerConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinioPayTokenizerConstants.h; sourceTree = "<group>"; };
 		07DA9A3B1E78C26900EE9E4A /* LinioPayTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinioPayTokenizer.h; sourceTree = "<group>"; };
 		07DA9A3C1E78C26900EE9E4A /* LinioPayTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinioPayTokenizer.m; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				07DA9A3B1E78C26900EE9E4A /* LinioPayTokenizer.h */,
 				07DA9A3C1E78C26900EE9E4A /* LinioPayTokenizer.m */,
 				075E64B61E7B502A00188310 /* LinioPayTokenizerConstants.h */,
+				0724628A1E846EED00690A6C /* LinioPayTokenizerConstants.m */,
 			);
 			path = LinioPayTokenizer;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				BAB1643F403CC229465AC76CEBBBAE71 /* LinioPayTokenizer-dummy.m in Sources */,
 				07DA9A3E1E78C26900EE9E4A /* LinioPayTokenizer.m in Sources */,
+				0724628B1E846EED00690A6C /* LinioPayTokenizerConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
