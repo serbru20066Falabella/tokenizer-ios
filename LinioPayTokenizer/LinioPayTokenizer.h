@@ -24,17 +24,17 @@ extern const NSString *FORM_DICT_KEY_COUNTRY_CODE;
 extern const NSString *FORM_DICT_KEY_POSTAL_CODE;
 
 - (id)initWithKey:(NSString *)key;
-- (BOOL)validateKey:(NSString *)key;
-- (BOOL)validateName:(NSString*)name;
-- (BOOL)validateNumber:(NSString *)cardNumber;
-- (BOOL)validateCVC:(NSString *)cvcNumber card:(NSString *)cardNumber;
-- (BOOL)validateExpDate:(NSString *)monthValue year:(NSString *)yearValue;
-- (BOOL)validateAddressStreet1:(NSString *)addressStreet1;
-- (BOOL)validateAddressStreet2:(NSString *)addressStreet2;
-- (BOOL)validateAddressCity:(NSString *)city;
-- (BOOL)validateAddressState:(NSString *)state;
-- (BOOL)validateAddressCountryCode:(NSString *)countryCode;
-- (BOOL)validateAddressPostalCode:(NSString *)postalCode;
+- (void)validateKey:(NSString *)key completion:(void (^) (BOOL success, NSError *error)) completion;
+- (void)validateName:(NSString*)name completion:(void (^) (BOOL success, NSError *error)) completion;
+- (void)validateNumber:(NSString *)cardNumber completion:(void (^) (BOOL success, NSError *error)) completion;
+- (void)validateCVC:(NSString *)cvcNumber card:(NSString *)cardNumber completion:(void (^) (BOOL success, NSError *error)) completion;
+- (void)validateExpDate:(NSString *)monthValue year:(NSString *)yearValue completion:(void (^) (BOOL success, NSError *error)) completion;
+- (void)validateAddressStreet1:(NSString *)addressStreet1 completion:(void (^) (BOOL success, NSError *error)) completion;
+- (void)validateAddressStreet2:(NSString *)addressStreet2 completion:(void (^) (BOOL success, NSError *error)) completion;
+- (void)validateAddressCity:(NSString *)city completion:(void (^) (BOOL success, NSError *error)) completion;
+- (void)validateAddressState:(NSString *)state completion:(void (^) (BOOL success, NSError *error)) completion;
+- (void)validateAddressCountryCode:(NSString *)countryCode completion:(void (^) (BOOL success, NSError *error)) completion;
+- (void)validateAddressPostalCode:(NSString *)postalCode completion:(void (^) (BOOL success, NSError *error)) completion;
 - (void)requestToken:(NSDictionary *)formValues completion:(void (^)(NSDictionary* data, NSError* error))completion;
 
 @end
