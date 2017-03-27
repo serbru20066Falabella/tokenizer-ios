@@ -64,7 +64,6 @@
          XCTAssertNotNil(error, @"validateKey when key length is 0 should return an error object");
          XCTAssertFalse(data, @"False when key length is 0");
      }];
- 
 }
 
 - (void)testValidateKeyWithStringLengthLessThan40
@@ -152,7 +151,8 @@
                              @"5019717010103742",
                              @"6331101999990016"];
     
-    for (NSString *number in cardNumbers) {
+    for (NSString *number in cardNumbers)
+    {
         [self.tokenizer validateNumber:number completion:^(BOOL data, NSError *error)
          {
              XCTAssertNil(error, @"validateCardNumber with valid data should return a nil error object");

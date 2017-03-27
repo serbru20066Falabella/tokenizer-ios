@@ -34,7 +34,6 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
 -(id)initWithKey:(NSString *)key
 {
     self = [super init];
-    
     _errorMessages = [NSMutableArray arrayWithCapacity:1];
     
     if(self)
@@ -48,15 +47,12 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
 -(void)validateKey:(NSString *)key completion:(void (^) (BOOL success, NSError *error)) completion
 {
     const NSUInteger keyCharLength = CHAR_LENGTH_KEY;
-    
     NSError *requiredError = [NSError errorWithDomain:ERROR_DOMAIN
                                                        code:ERROR_CODE_REQUIRED_KEY
                                                    userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_KEY }];
-    
     NSError *invalidError = [NSError errorWithDomain:ERROR_DOMAIN
                                                       code:ERROR_CODE_INVALID_KEY
                                                   userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_KEY }];
-    
     NSString *regEx = [NSString stringWithFormat:@"^\\w{%lu}$", (unsigned long)keyCharLength];
     
     if (key == nil)
@@ -84,15 +80,12 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
 {
     const NSUInteger minCharacters = MIN_CHAR_NAME;
     const NSUInteger maxCharacters = MAX_CHAR_NAME;
-
     NSError *requiredError = [NSError errorWithDomain:ERROR_DOMAIN
                                                        code:ERROR_CODE_REQUIRED_NAME
                                                    userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_NAME }];
-    
     NSError *charMinLimitError = [NSError errorWithDomain:ERROR_DOMAIN
                                                            code:ERROR_CODE_CHAR_MIN_LIMIT_NAME
                                                        userInfo:@{ NSLocalizedDescriptionKey : [NSString stringWithFormat:ERROR_DESC_CHAR_MIN_LIMIT_NAME, (unsigned long)minCharacters] }];
-    
     NSError *charMaxLimitError = [NSError errorWithDomain:ERROR_DOMAIN
                                                            code:ERROR_CODE_CHAR_MAX_LIMIT_NAME
                                                        userInfo:@{ NSLocalizedDescriptionKey : [NSString stringWithFormat:ERROR_DESC_CHAR_MAX_LIMIT_NAME, (unsigned long)maxCharacters] }];
@@ -114,7 +107,8 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
         return completion(false, charMinLimitError);
     }
     
-    if ([formattedName length] > maxCharacters) {
+    if ([formattedName length] > maxCharacters)
+    {
         return completion(false, charMaxLimitError);
     }
     
@@ -126,11 +120,9 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     NSError *requiredError = [NSError errorWithDomain:ERROR_DOMAIN
                                                        code:ERROR_CODE_REQUIRED_CARD_NUMBER
                                                    userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_CARD_NUMBER }];
-    
     NSError *invalidError = [NSError errorWithDomain:ERROR_DOMAIN
                                                       code:ERROR_CODE_INVALID_CARD_NUMBER
                                                   userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_CARD_NUMBER }];
-    
     const NSError *error = nil;
     const NSRegularExpression *regEx = [NSRegularExpression regularExpressionWithPattern:@"\\s|-"
                                                                                  options:NSRegularExpressionCaseInsensitive
@@ -201,12 +193,9 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
         NSError *invalidError = [NSError errorWithDomain:ERROR_DOMAIN
                                                           code:ERROR_CODE_INVALID_CVC
                                                       userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_CVC }];
-        
         NSInteger validCVCNumberLength = CHAR_LENGTH_CVC;
-        
         NSMutableString *formattedCVC = [NSMutableString stringWithString:cvcNumber];
         formattedCVC = [self trimString:formattedCVC];
-        
         NSMutableString *formattedCardNumber = [NSMutableString stringWithString:cardNumber];
         formattedCardNumber = [self trimString:formattedCardNumber];
         
@@ -235,19 +224,15 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     NSError *requiredMonthError = [NSError errorWithDomain:ERROR_DOMAIN
                                                             code:ERROR_CODE_REQUIRED_MONTH
                                                         userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_MONTH }];
-    
     NSError *invalidMonthError = [NSError errorWithDomain:ERROR_DOMAIN
                                                            code:ERROR_CODE_INVALID_MONTH
                                                        userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_MONTH }];
-    
     NSError *requiredYearError = [NSError errorWithDomain:ERROR_DOMAIN
                                                            code:ERROR_CODE_REQUIRED_YEAR
                                                        userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_YEAR }];
-    
     NSError *invalidYearError = [NSError errorWithDomain:ERROR_DOMAIN
                                                           code:ERROR_CODE_INVALID_YEAR
                                                       userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_YEAR }];
-    
     NSError *invalidExpError = [NSError errorWithDomain:ERROR_DOMAIN
                                                          code:ERROR_CODE_INVALID_EXPIRATION
                                                      userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_EXPIRATION }];
@@ -274,7 +259,6 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     }
     
     NSString *formattedMonth = [self trimString:[NSMutableString stringWithString:monthValue]];
-    
     NSString *formattedYear = [self trimString:[NSMutableString stringWithString:yearValue]];
     
     if ([formattedMonth length] == 0)
@@ -322,11 +306,9 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     NSDate *today = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM"];
-    
     NSDate *expirationDate =[dateFormatter dateFromString:[NSString stringWithFormat:@"%@-%@", formattedYear, formattedMonth]];
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     [dateComponents setMonth:1];
-    
     NSCalendar *calendar = [NSCalendar currentCalendar];
     expirationDate = [calendar dateByAddingComponents:dateComponents toDate:expirationDate options:0];
     
@@ -341,11 +323,9 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
 -(void)validateAddressStreet1:(NSString *)addressStreet1 completion:(void (^) (BOOL success, NSError *error)) completion
 {
     const NSUInteger maxCharacters = MAX_CHAR_STREET_1;
-    
     NSError *requiredError = [NSError errorWithDomain:ERROR_DOMAIN
                                                        code:ERROR_CODE_REQUIRED_STREET_1
                                                    userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_STREET_1 }];
-    
     NSError *charMaxLimitError = [NSError errorWithDomain:ERROR_DOMAIN
                                                            code:ERROR_CODE_CHAR_MAX_LIMIT_STREET_1
                                                        userInfo:@{ NSLocalizedDescriptionKey : [NSString stringWithFormat:ERROR_DESC_CHAR_MAX_LIMIT_STREET_1, (unsigned long)maxCharacters] }];
@@ -394,11 +374,9 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
 -(void)validateAddressCity:(NSString *)city completion:(void (^) (BOOL success, NSError *error)) completion
 {
     const NSUInteger maxCharacters = MAX_CHAR_CITY;
-    
     NSError *requiredError = [NSError errorWithDomain:ERROR_DOMAIN
                                                        code:ERROR_CODE_REQUIRED_CITY
                                                    userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_CITY }];
-    
     NSError *charMaxLimitError = [NSError errorWithDomain:ERROR_DOMAIN
                                                            code:ERROR_CODE_CHAR_MAX_LIMIT_CITY
                                                        userInfo:@{ NSLocalizedDescriptionKey : [NSString stringWithFormat:ERROR_DESC_CHAR_MAX_LIMIT_CITY, (unsigned long)maxCharacters] }];
@@ -426,11 +404,9 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
 -(void)validateAddressState:(NSString *)state completion:(void (^) (BOOL success, NSError *error)) completion
 {
     const NSUInteger maxCharacters = MAX_CHAR_STATE;
-    
     NSError *requiredError = [NSError errorWithDomain:ERROR_DOMAIN
                                                        code:ERROR_CODE_REQUIRED_STATE
                                                    userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_STATE }];
-    
     NSError *charMaxLimitError = [NSError errorWithDomain:ERROR_DOMAIN
                                                            code:ERROR_CODE_CHAR_MAX_LIMIT_STATE
                                                        userInfo:@{ NSLocalizedDescriptionKey : [NSString stringWithFormat:ERROR_DESC_CHAR_MAX_LIMIT_STATE, (unsigned long)maxCharacters] }];
@@ -458,11 +434,9 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
 -(void)validateAddressCountryCode:(NSString *)countryCode completion:(void (^) (BOOL success, NSError *error)) completion
 {
     const NSUInteger numberOfCharacters = CHAR_LENGTH_COUNTRY_CODE;
-    
     NSError *requiredError = [NSError errorWithDomain:ERROR_DOMAIN
                                                        code:ERROR_CODE_REQUIRED_COUNTRY_CODE
                                                    userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_COUNTRY_CODE }];
-
     NSError *invalidError = [NSError errorWithDomain:ERROR_DOMAIN
                                                          code:ERROR_CODE_INVALID_COUNTRY_CODE
                                                      userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_COUNTRY_CODE }];
@@ -490,15 +464,12 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
 -(void)validateAddressPostalCode:(NSString *)postalCode completion:(void (^) (BOOL success, NSError *error)) completion
 {
     const NSUInteger maxCharacters = MAX_CHAR_POSTAL_CODE;
-    
     NSError *requiredError = [NSError errorWithDomain:ERROR_DOMAIN
                                                        code:ERROR_CODE_REQUIRED_POSTAL_CODE
                                                    userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_POSTAL_CODE }];
-    
     NSError *charMaxLimitError = [NSError errorWithDomain:ERROR_DOMAIN
                                                            code:ERROR_CODE_CHAR_MAX_LIMIT_POSTAL_CODE
                                                        userInfo:@{ NSLocalizedDescriptionKey : [NSString stringWithFormat:ERROR_DESC_CHAR_MAX_LIMIT_POSTAL_CODE, (unsigned long)maxCharacters] }];
-    
     NSError *invalidError = [NSError errorWithDomain:ERROR_DOMAIN
                                                       code:ERROR_CODE_INVALID_POSTAL_CODE
                                                   userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_POSTAL_CODE }];
@@ -534,20 +505,16 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     const NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\s+|\\s+$"
                                                                                  options:NSRegularExpressionCaseInsensitive
                                                                                    error:&error];
-    
     const NSRegularExpression *regex2 = [NSRegularExpression regularExpressionWithPattern:@"\\s+"
                                                                                   options:NSRegularExpressionCaseInsensitive
                                                                                     error:&error];
-    
     NSMutableString *modifiedString = [NSMutableString stringWithString:[regex stringByReplacingMatchesInString:string
                                                                                                         options:0
                                                                                                           range:NSMakeRange(0, [string length])
                                                                                                    withTemplate:@""]];
-    
     modifiedString = [NSMutableString stringWithString:[regex2 stringByReplacingMatchesInString:modifiedString
                                                                                         options:0 range:NSMakeRange(0, [modifiedString length])
                                                                                    withTemplate:@" "]];
-    
     return modifiedString;
 }
 
@@ -591,7 +558,9 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
              [_errorMessages addObject:error];
          }
      }];
-    [self validateExpDate:[formValues objectForKey:FORM_DICT_KEY_MONTH] year:[formValues objectForKey:FORM_DICT_KEY_YEAR] completion:^(BOOL success, NSError *error)
+    [self validateExpDate:[formValues objectForKey:FORM_DICT_KEY_MONTH]
+                     year:[formValues objectForKey:FORM_DICT_KEY_YEAR]
+               completion:^(BOOL success, NSError *error)
      {
          if(error != nil)
          {
@@ -601,42 +570,48 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     if ([formValues objectForKey:FORM_DICT_KEY_ADDRESS] != nil)
     {
         NSDictionary *addressData = [formValues objectForKey:FORM_DICT_KEY_ADDRESS];
-        [self validateAddressStreet1:[addressData objectForKey:FORM_DICT_KEY_STREET_1] completion:^(BOOL success, NSError *error)
+        [self validateAddressStreet1:[addressData objectForKey:FORM_DICT_KEY_STREET_1]
+                          completion:^(BOOL success, NSError *error)
          {
              if(error != nil)
              {
                  [_errorMessages addObject:error];
              }
          }];
-        [self validateAddressStreet2:[addressData objectForKey:FORM_DICT_KEY_STREET_2] completion:^(BOOL success, NSError *error)
+        [self validateAddressStreet2:[addressData objectForKey:FORM_DICT_KEY_STREET_2]
+                          completion:^(BOOL success, NSError *error)
          {
              if(error != nil)
              {
                  [_errorMessages addObject:error];
              }
          }];
-        [self validateAddressCity:[addressData objectForKey:FORM_DICT_KEY_CITY] completion:^(BOOL success, NSError *error)
+        [self validateAddressCity:[addressData objectForKey:FORM_DICT_KEY_CITY]
+                       completion:^(BOOL success, NSError *error)
          {
              if(error != nil)
              {
                  [_errorMessages addObject:error];
              }
          }];
-        [self validateAddressState:[addressData objectForKey:FORM_DICT_KEY_STATE] completion:^(BOOL success, NSError *error)
+        [self validateAddressState:[addressData objectForKey:FORM_DICT_KEY_STATE]
+                        completion:^(BOOL success, NSError *error)
          {
              if(error != nil)
              {
                  [_errorMessages addObject:error];
              }
          }];
-        [self validateAddressCountryCode:[addressData objectForKey:FORM_DICT_KEY_COUNTRY_CODE] completion:^(BOOL success, NSError *error)
+        [self validateAddressCountryCode:[addressData objectForKey:FORM_DICT_KEY_COUNTRY_CODE]
+                              completion:^(BOOL success, NSError *error)
          {
              if(error != nil)
              {
                  [_errorMessages addObject:error];
              }
          }];
-        [self validateAddressPostalCode:[addressData objectForKey:FORM_DICT_KEY_POSTAL_CODE] completion:^(BOOL success, NSError *error)
+        [self validateAddressPostalCode:[addressData objectForKey:FORM_DICT_KEY_POSTAL_CODE]
+                             completion:^(BOOL success, NSError *error)
          {
              if(error != nil)
              {
@@ -685,20 +660,15 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
         }
         
         // Else submit form
-        
         NSURL * apiURL = [NSURL URLWithString:LPTS_API_PATH];
-        
         NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:apiURL];
-        
         [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
         [urlRequest setHTTPMethod:@"POST"];
         [urlRequest setHTTPBody:jsonData];
-
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject
                                                                      delegate:nil
                                                                 delegateQueue:[NSOperationQueue mainQueue]];
-        
         NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:urlRequest
                                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error!=nil)
@@ -722,7 +692,6 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
                 }
             }
         }];
-        
         [dataTask resume];
     }
 }
