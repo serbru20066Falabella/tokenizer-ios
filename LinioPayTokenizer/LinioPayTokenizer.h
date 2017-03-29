@@ -24,17 +24,17 @@ extern const NSString *FORM_DICT_KEY_COUNTRY_CODE;
 extern const NSString *FORM_DICT_KEY_POSTAL_CODE;
 
 - (id)initWithKey:(NSString *)key;
-- (void)validateKey:(NSString *)key completion:(void (^) (BOOL success, NSError *error)) completion;
-- (void)validateName:(NSString*)name completion:(void (^) (BOOL success, NSError *error)) completion;
-- (void)validateNumber:(NSString *)cardNumber completion:(void (^) (BOOL success, NSError *error)) completion;
-- (void)validateCVC:(NSString *)cvcNumber card:(NSString *)cardNumber completion:(void (^) (BOOL success, NSError *error)) completion;
-- (void)validateExpDate:(NSString *)monthValue year:(NSString *)yearValue completion:(void (^) (BOOL success, NSError *error)) completion;
-- (void)validateAddressStreet1:(NSString *)addressStreet1 completion:(void (^) (BOOL success, NSError *error)) completion;
-- (void)validateAddressStreet2:(NSString *)addressStreet2 completion:(void (^) (BOOL success, NSError *error)) completion;
-- (void)validateAddressCity:(NSString *)city completion:(void (^) (BOOL success, NSError *error)) completion;
-- (void)validateAddressState:(NSString *)state completion:(void (^) (BOOL success, NSError *error)) completion;
-- (void)validateAddressCountryCode:(NSString *)countryCode completion:(void (^) (BOOL success, NSError *error)) completion;
-- (void)validateAddressPostalCode:(NSString *)postalCode completion:(void (^) (BOOL success, NSError *error)) completion;
+- (BOOL)validateKey:(NSString *)key error:(NSError **)outError;
+- (BOOL)validateName:(NSString*)name error:(NSError **)outError;
+- (BOOL)validateNumber:(NSString *)cardNumber error:(NSError **)outError;
+- (BOOL)validateCVC:(NSString *)cvcNumber card:(NSString *)cardNumber error:(NSError **)outError;
+- (BOOL)validateExpDate:(NSString *)monthValue year:(NSString *)yearValue error:(NSError **)outError;
+- (BOOL)validateAddressStreet1:(NSString *)addressStreet1 error:(NSError **)outError;
+- (BOOL)validateAddressStreet2:(NSString *)addressStreet2 error:(NSError **)outError;
+- (BOOL)validateAddressCity:(NSString *)city error:(NSError **)outError;
+- (BOOL)validateAddressState:(NSString *)state error:(NSError **)outError;
+- (BOOL)validateAddressCountryCode:(NSString *)countryCode error:(NSError **)outError;
+- (BOOL)validateAddressPostalCode:(NSString *)postalCode error:(NSError **)outError;
 - (void)requestToken:(NSDictionary *)formValues completion:(void (^)(NSDictionary* data, NSError* error))completion;
 
 @end
