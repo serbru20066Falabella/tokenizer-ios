@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LinioPayTokenizer_Example' do
+  pod 'LinioPayTokenizer', :path => '../'
+
+  target 'LinioPayTokenizer_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

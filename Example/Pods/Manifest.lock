@@ -1,0 +1,16 @@
+PODS:
+  - LinioPayTokenizer (0.1.0)
+
+DEPENDENCIES:
+  - LinioPayTokenizer (from `../`)
+
+EXTERNAL SOURCES:
+  LinioPayTokenizer:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LinioPayTokenizer: e095b0ed0fd8adc16ad895deafec249d6b74b657
+
+PODFILE CHECKSUM: a09aa876ad42818fdb4713898cc82a52d824fd60
+
+COCOAPODS: 1.1.1
