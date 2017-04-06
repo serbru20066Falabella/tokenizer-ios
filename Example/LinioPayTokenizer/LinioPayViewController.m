@@ -7,7 +7,7 @@
 //
 
 #import "LinioPayViewController.h"
-#import "LinioPayTokenizer.h"
+#import "LinioPayTokenizer/LinioPayTokenizer.h"
 
 @interface LinioPayViewController()
 
