@@ -5,7 +5,7 @@
 //  Created by omargon on 03/14/2017.
 //  Copyright (c) 2017 omargon. All rights reserved.
 //
-#import "LinioPayTokenizer.h"
+#import "LinioPayTokenizer/LinioPayTokenizer.h"
 
 @import XCTest;
 

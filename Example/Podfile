@@ -1,11 +1,12 @@
 use_frameworks!
 
+source 'git@github.com:LinioIT/pay-tokenizer-ios.git'
+
 target 'LinioPayTokenizer_Example' do
-  pod 'LinioPayTokenizer', :path => '../'
+  pod 'LinioPayTokenizer', '~> 0.1.0'
 
   target 'LinioPayTokenizer_Tests' do
     inherit! :search_paths
 
-    
   end
 end
