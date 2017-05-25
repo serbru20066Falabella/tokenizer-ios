@@ -56,7 +56,7 @@
                FORM_DICT_KEY_STREET_2: addressLine2Field.text,
                FORM_DICT_KEY_CITY: addressCityField.text,
                FORM_DICT_KEY_STATE: addressStateField.text,
-               FORM_DICT_KEY_COUNTRY_CODE: addressCountryCodeField.text,
+               FORM_DICT_KEY_COUNTRY: addressCountryField.text,
                FORM_DICT_KEY_POSTAL_CODE: addressPostalCodeField.text,
                },
        }

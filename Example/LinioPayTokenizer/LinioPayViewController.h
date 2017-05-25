@@ -19,7 +19,7 @@
     IBOutlet UITextField *addressLine2Field;
     IBOutlet UITextField *addressCityField;
     IBOutlet UITextField *addressStateField;
-    IBOutlet UITextField *addressCountryCodeField;
+    IBOutlet UITextField *addressCountryField;
     IBOutlet UITextField *addressPostalCodeField;
 
 }

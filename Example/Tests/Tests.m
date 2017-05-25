@@ -331,32 +331,32 @@
                    @"False when a state string value length > 120");
 }
 
-- (void)testValidateAddressCountryCodeWithValidValue
+- (void)testValidateAddressCountryWithValidValue
 {
     NSError *error;
-    XCTAssertTrue([self.tokenizer validateAddressCountryCode:@"USA" error:&error],
-                  @"True when a valid country code");
+    XCTAssertTrue([self.tokenizer validateAddressCountry:@"USA" error:&error],
+                  @"True when a valid country");
 }
 
-- (void)testValidateAddressCountryCodeWithNil
+- (void)testValidateAddressCountryWithNil
 {
     NSError *error;
-    XCTAssertFalse([self.tokenizer validateAddressCountryCode:nil error:&error],
-                   @"False when a nil or no address country code");
+    XCTAssertFalse([self.tokenizer validateAddressCountry:nil error:&error],
+                   @"False when a nil or no address country");
 }
 
-- (void)testValidateAddressCountryCodeWithStringLengthEqual0
+- (void)testValidateAddressCountryWithStringLengthEqual0
 {
     NSError *error;
-    XCTAssertFalse([self.tokenizer validateAddressCountryCode:@"" error:&error],
-                   @"False when an empty country code");
+    XCTAssertFalse([self.tokenizer validateAddressCountry:@"" error:&error],
+                   @"False when an empty country");
 }
 
-- (void)testValidateAddressCountryCodeWithStringLengthMoreThan3
+- (void)testValidateAddressCountryWithStringLengthMoreThan3
 {
     NSError *error;
-    XCTAssertFalse([self.tokenizer validateAddressCountryCode:@"MXCC" error:&error],
-                   @"False when a country code string value length > 3");
+    XCTAssertFalse([self.tokenizer validateAddressCountry:@"MXCC" error:&error],
+                   @"False when a country string value length > 3");
 }
 
 - (void)testValidateAddressPostalCodeWithValidValue
@@ -408,7 +408,7 @@
                                            FORM_DICT_KEY_STREET_2: @"",
                                            FORM_DICT_KEY_CITY: @"Miami",
                                            FORM_DICT_KEY_STATE: @"Florida",
-                                           FORM_DICT_KEY_COUNTRY_CODE: @"USA",
+                                           FORM_DICT_KEY_COUNTRY: @"USA",
                                            FORM_DICT_KEY_POSTAL_CODE: @"33178",
                                    },
                                }
