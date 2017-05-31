@@ -20,7 +20,7 @@ extern const NSString *FORM_DICT_KEY_STREET_1;
 extern const NSString *FORM_DICT_KEY_STREET_2;
 extern const NSString *FORM_DICT_KEY_CITY;
 extern const NSString *FORM_DICT_KEY_STATE;
-extern const NSString *FORM_DICT_KEY_COUNTRY_CODE;
+extern const NSString *FORM_DICT_KEY_COUNTRY;
 extern const NSString *FORM_DICT_KEY_POSTAL_CODE;
 
 - (id)initWithKey:(NSString *)key;
@@ -33,7 +33,7 @@ extern const NSString *FORM_DICT_KEY_POSTAL_CODE;
 - (BOOL)validateAddressStreet2:(NSString *)addressStreet2 error:(NSError **)outError;
 - (BOOL)validateAddressCity:(NSString *)city error:(NSError **)outError;
 - (BOOL)validateAddressState:(NSString *)state error:(NSError **)outError;
-- (BOOL)validateAddressCountryCode:(NSString *)countryCode error:(NSError **)outError;
+- (BOOL)validateAddressCountry:(NSString *)country error:(NSError **)outError;
 - (BOOL)validateAddressPostalCode:(NSString *)postalCode error:(NSError **)outError;
 - (void)requestToken:(NSDictionary *)formValues completion:(void (^)(NSDictionary* data, NSError* error))completion;
 

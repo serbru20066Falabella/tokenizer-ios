@@ -28,7 +28,7 @@ const NSString *FORM_DICT_KEY_STREET_1 = @"street1";
 const NSString *FORM_DICT_KEY_STREET_2 = @"street2";
 const NSString *FORM_DICT_KEY_CITY = @"city";
 const NSString *FORM_DICT_KEY_STATE = @"state";
-const NSString *FORM_DICT_KEY_COUNTRY_CODE = @"country_code";
+const NSString *FORM_DICT_KEY_COUNTRY = @"country_code";
 const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
 
 -(id)initWithKey:(NSString *)key
@@ -458,31 +458,31 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     return TRUE;
 }
 
--(BOOL)validateAddressCountryCode:(NSString *)countryCode error:(NSError **)outError
+-(BOOL)validateAddressCountry:(NSString *)country error:(NSError **)outError
 {
-    const NSUInteger numberOfCharacters = CHAR_LENGTH_COUNTRY_CODE;
+    const NSUInteger numberOfCharacters = CHAR_LENGTH_COUNTRY;
     NSError *requiredError = [NSError errorWithDomain:ERROR_DOMAIN
-                                                       code:ERROR_CODE_REQUIRED_COUNTRY_CODE
-                                                   userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_COUNTRY_CODE }];
+                                                       code:ERROR_CODE_REQUIRED_COUNTRY
+                                                   userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_COUNTRY }];
     NSError *invalidError = [NSError errorWithDomain:ERROR_DOMAIN
-                                                         code:ERROR_CODE_INVALID_COUNTRY_CODE
-                                                     userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_COUNTRY_CODE }];
+                                                         code:ERROR_CODE_INVALID_COUNTRY
+                                                     userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_INVALID_COUNTRY }];
     
-    if (countryCode == nil)
+    if (country == nil)
     {
         *outError = requiredError;
         return FALSE;
     }
     
-    NSString *formattedCountryCode = [self trimString:[NSMutableString stringWithString:countryCode]];
+    NSString *formattedCountry = [self trimString:[NSMutableString stringWithString:country]];
     
-    if ([formattedCountryCode length] == 0)
+    if ([formattedCountry length] == 0)
     {
         *outError = requiredError;
         return FALSE;
     }
     
-    if ([self testRegExp:formattedCountryCode withPattern:[NSString stringWithFormat:@"^[A-Za-z]{%lu}$", (unsigned long)numberOfCharacters]] == 0)
+    if ([self testRegExp:formattedCountry withPattern:[NSString stringWithFormat:@"^[A-Za-z]{%lu}$", (unsigned long)numberOfCharacters]] == 0)
     {
         *outError = invalidError;
         return FALSE;
@@ -572,7 +572,7 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     _errorMessages = [NSMutableArray arrayWithCapacity:1];
     
     
-    NSError *keyError, *nameError, *numberError, *expDateError, *street1Error, *street2Error, *cityError, *stateError, *countryCodeError, *postalCodeError;
+    NSError *keyError, *nameError, *numberError, *expDateError, *street1Error, *street2Error, *cityError, *stateError, *countryError, *postalCodeError;
     
     
     if(![self validateKey:_tokenizationKey error:&keyError])
@@ -646,11 +646,11 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
             }
         }
         
-        if(![self validateAddressCountryCode:[addressData objectForKey:FORM_DICT_KEY_COUNTRY_CODE] error:&countryCodeError])
+        if(![self validateAddressCountry:[addressData objectForKey:FORM_DICT_KEY_COUNTRY] error:&countryError])
         {
-            if (countryCodeError != nil)
+            if (countryError != nil)
             {
-                [_errorMessages addObject:countryCodeError];
+                [_errorMessages addObject:countryError];
             }
         }
 
