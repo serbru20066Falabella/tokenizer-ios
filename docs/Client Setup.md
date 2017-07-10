@@ -17,7 +17,8 @@ This setup will be based on a typical payment form:
 ### 1. Add LinioPay Tokenizer to your Podfile
 
 ```
-pod 'linio-pay-tokenizer-ios'
+#pod 'linio-pay-tokenizer-ios'
+pod 'LinioPayTokenizer', :git => 'git@github.com:LinioIT/pay-tokenizer-ios.git', :branch => 'master'
 ```
 
 ### 2. Install Pods
