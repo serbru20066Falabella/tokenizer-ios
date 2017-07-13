@@ -29,6 +29,7 @@ const NSString *FORM_DICT_KEY_ADDRESS_LAST_NAME = @"last_name";
 const NSString *FORM_DICT_KEY_STREET_1 = @"street1";
 const NSString *FORM_DICT_KEY_STREET_2 = @"street2";
 const NSString *FORM_DICT_KEY_STREET_3 = @"street3";
+const NSString *FORM_DICT_KEY_PHONE = @"phone_number";
 const NSString *FORM_DICT_KEY_CITY = @"city";
 const NSString *FORM_DICT_KEY_STATE = @"state";
 const NSString *FORM_DICT_KEY_COUNTY = @"county";
@@ -414,6 +415,11 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
                 errorCode = ERROR_CODE_CHAR_MAX_LIMIT_COUNTY;
                 errorString = ERROR_DESC_CHAR_MAX_LIMIT_COUNTY;
                 break;
+            case Phone:
+                maxCharacters = MAX_CHAR_PHONE;
+                errorCode = ERROR_CODE_CHAR_MAX_LIMIT_PHONE;
+                errorString = ERROR_DESC_CHAR_MAX_LIMIT_PHONE;
+                break;
         }
         
         NSError *charMaxLimitError = [NSError errorWithDomain:ERROR_DOMAIN
@@ -612,7 +618,7 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     _errorMessages = [NSMutableArray arrayWithCapacity:1];
     
     
-    NSError *keyError, *nameError, *numberError, *expDateError, *addressFirstNameError, *addressLastNameError, *street1Error, *street2Error, *street3Error, *cityError, *stateError, *countyError, *countryError, *postalCodeError;
+    NSError *keyError, *nameError, *numberError, *expDateError, *addressFirstNameError, *addressLastNameError, *street1Error, *street2Error, *street3Error, *phoneError, *cityError, *stateError, *countyError, *countryError, *postalCodeError;
     
     
     if(![self validateKey:_tokenizationKey error:&keyError])
@@ -695,6 +701,16 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
             if (street3Error != nil)
             {
                 [_errorMessages addObject:street3Error];
+            }
+        }
+        
+        if(![self validateOptionalAddressLine:[addressData objectForKey:FORM_DICT_KEY_PHONE]
+                                         type:Phone
+                                        error:&phoneError])
+        {
+            if (phoneError != nil)
+            {
+                [_errorMessages addObject:phoneError];
             }
         }
         

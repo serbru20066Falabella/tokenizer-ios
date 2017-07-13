@@ -58,6 +58,7 @@
                FORM_DICT_KEY_STREET_1: addressLine1Field.text,
                FORM_DICT_KEY_STREET_2: addressLine2Field.text,
                FORM_DICT_KEY_STREET_3: @"optional line 3",
+               FORM_DICT_KEY_PHONE: @"(917) 1010-2020",
                FORM_DICT_KEY_CITY: addressCityField.text,
                FORM_DICT_KEY_STATE: addressStateField.text,
                FORM_DICT_KEY_COUNTY: @"optional line county",

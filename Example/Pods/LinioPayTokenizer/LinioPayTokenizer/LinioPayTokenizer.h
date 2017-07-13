@@ -19,7 +19,8 @@ typedef NS_ENUM(NSInteger, NameType) {
 typedef NS_ENUM(NSInteger, AddressLineType) {
     AddressStreet2,
     AddressStreet3,
-    County
+    County,
+    Phone
 };
 
 extern const NSString *FORM_DICT_KEY_NAME;
@@ -33,6 +34,7 @@ extern const NSString *FORM_DICT_KEY_ADDRESS_LAST_NAME;
 extern const NSString *FORM_DICT_KEY_STREET_1;
 extern const NSString *FORM_DICT_KEY_STREET_2;
 extern const NSString *FORM_DICT_KEY_STREET_3;
+extern const NSString *FORM_DICT_KEY_PHONE;
 extern const NSString *FORM_DICT_KEY_CITY;
 extern const NSString *FORM_DICT_KEY_STATE;
 extern const NSString *FORM_DICT_KEY_COUNTRY;
