@@ -24,6 +24,8 @@ const NSString *FORM_DICT_KEY_CVC = @"cvc";
 const NSString *FORM_DICT_KEY_MONTH = @"expiration_month";
 const NSString *FORM_DICT_KEY_YEAR = @"expiration_year";
 const NSString *FORM_DICT_KEY_ADDRESS = @"address";
+const NSString *FORM_DICT_KEY_ADDRESS_FIRST_NAME = @"first_name";
+const NSString *FORM_DICT_KEY_ADDRESS_LAST_NAME = @"last_name";
 const NSString *FORM_DICT_KEY_STREET_1 = @"street1";
 const NSString *FORM_DICT_KEY_STREET_2 = @"street2";
 const NSString *FORM_DICT_KEY_CITY = @"city";
@@ -80,13 +82,27 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     return TRUE;
 }
 
--(BOOL)validateName:(NSString *)name error:(NSError **)outError
+-(BOOL)validateName:(NSString *)name type:(NameType)nameType error:(NSError **)outError
 {
     const NSUInteger minCharacters = MIN_CHAR_NAME;
     const NSUInteger maxCharacters = MAX_CHAR_NAME;
+    NSString *nameErrorType = nil;
+    
+    switch(nameType) {
+        case CreditCardHolderName:
+            nameErrorType = ERROR_DESC_REQUIRED_NAME;
+            break;
+        case AddressFirstName:
+            nameErrorType = ERROR_DESC_REQUIRED_ADDRESS_FIRST_NAME;
+            break;
+        case AddressLastName:
+            nameErrorType = ERROR_DESC_REQUIRED_ADDRESS_LAST_NAME;
+            break;
+    }
+    
     NSError *requiredError = [NSError errorWithDomain:ERROR_DOMAIN
                                                        code:ERROR_CODE_REQUIRED_NAME
-                                                   userInfo:@{ NSLocalizedDescriptionKey : ERROR_DESC_REQUIRED_NAME }];
+                                                   userInfo:@{ NSLocalizedDescriptionKey : nameErrorType }];
     NSError *charMinLimitError = [NSError errorWithDomain:ERROR_DOMAIN
                                                            code:ERROR_CODE_CHAR_MIN_LIMIT_NAME
                                                        userInfo:@{ NSLocalizedDescriptionKey : [NSString stringWithFormat:ERROR_DESC_CHAR_MIN_LIMIT_NAME, (unsigned long)minCharacters] }];
@@ -567,12 +583,12 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     return false;
 }
 
--(void)requestToken:(NSDictionary *)formValues completion:(void (^) (NSDictionary *, NSError *)) completion
+-(void)requestToken:(NSDictionary *)formValues oneTime:(BOOL)oneTime completion:(void (^) (NSDictionary *, NSError *)) completion
 {
     _errorMessages = [NSMutableArray arrayWithCapacity:1];
     
     
-    NSError *keyError, *nameError, *numberError, *expDateError, *street1Error, *street2Error, *cityError, *stateError, *countryError, *postalCodeError;
+    NSError *keyError, *nameError, *numberError, *expDateError, *addressFirstNameError, *addressLastNameError, *street1Error, *street2Error, *cityError, *stateError, *countryError, *postalCodeError;
     
     
     if(![self validateKey:_tokenizationKey error:&keyError])
@@ -583,7 +599,7 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
         }
     }
     
-    if(![self validateName:[formValues objectForKey:FORM_DICT_KEY_NAME] error:&nameError])
+    if(![self validateName:[formValues objectForKey:FORM_DICT_KEY_NAME] type:CreditCardHolderName error:&nameError])
     {
         if (nameError != nil)
         {
@@ -613,6 +629,22 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     if ([formValues objectForKey:FORM_DICT_KEY_ADDRESS] != nil)
     {
         NSDictionary *addressData = [formValues objectForKey:FORM_DICT_KEY_ADDRESS];
+        
+        if(![self validateName:[addressData objectForKey:FORM_DICT_KEY_ADDRESS_FIRST_NAME] type:AddressFirstName error:&addressFirstNameError])
+        {
+            if (addressFirstNameError != nil)
+            {
+                [_errorMessages addObject:addressFirstNameError];
+            }
+        }
+        
+        if(![self validateName:[addressData objectForKey:FORM_DICT_KEY_ADDRESS_LAST_NAME] type:AddressLastName error:&addressLastNameError])
+        {
+            if (addressLastNameError != nil)
+            {
+                [_errorMessages addObject:addressLastNameError];
+            }
+        }
         
         if(![self validateAddressStreet1:[addressData objectForKey:FORM_DICT_KEY_STREET_1] error:&street1Error])
         {
@@ -682,7 +714,7 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
         NSDictionary *postData =@{
                                   @"tokenization_key": _tokenizationKey,
                                   @"token": @{
-                                          @"one_time": @"false",
+                                          @"one_time": [NSNumber numberWithBool:oneTime],
                                           @"payment_method": @{
                                                   @"charge_card": formValues,
                                                   },
@@ -702,9 +734,12 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
                                             userInfo:@{@"Error message": @"JSON error"}]);
         }
         
+        NSLog(@"JSON is %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+        
         // Else submit form
         NSURL * apiURL = [NSURL URLWithString:LPTS_API_PATH];
         NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:apiURL];
+        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
         [urlRequest setHTTPMethod:@"POST"];
         [urlRequest setHTTPBody:jsonData];

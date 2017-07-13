@@ -53,6 +53,8 @@ extern NSString * const ERROR_DESC_REQUIRED_NAME;
 extern NSString * const ERROR_DESC_REQUIRED_CARD_NUMBER;
 extern NSString * const ERROR_DESC_REQUIRED_MONTH;
 extern NSString * const ERROR_DESC_REQUIRED_YEAR;
+extern NSString * const ERROR_DESC_REQUIRED_ADDRESS_FIRST_NAME;
+extern NSString * const ERROR_DESC_REQUIRED_ADDRESS_LAST_NAME;
 extern NSString * const ERROR_DESC_REQUIRED_STREET_1;
 extern NSString * const ERROR_DESC_REQUIRED_CITY;
 extern NSString * const ERROR_DESC_REQUIRED_STATE;
