@@ -40,6 +40,7 @@ extern const NSString *FORM_DICT_KEY_STATE;
 extern const NSString *FORM_DICT_KEY_COUNTRY;
 extern const NSString *FORM_DICT_KEY_COUNTY;
 extern const NSString *FORM_DICT_KEY_POSTAL_CODE;
+extern const NSString *FORM_DICT_KEY_EMAIL;
 
 - (id)initWithKey:(NSString *)key;
 - (BOOL)validateKey:(NSString *)key error:(NSError **)outError;
@@ -53,6 +54,7 @@ extern const NSString *FORM_DICT_KEY_POSTAL_CODE;
 - (BOOL)validateAddressState:(NSString *)state error:(NSError **)outError;
 - (BOOL)validateAddressCountry:(NSString *)country error:(NSError **)outError;
 - (BOOL)validateAddressPostalCode:(NSString *)postalCode error:(NSError **)outError;
+- (BOOL)validateEmail:(NSString*)email error:(NSError **)outError;
 - (void)requestToken:(NSDictionary *)formValues oneTime:(BOOL)oneTime completion:(void (^)(NSDictionary* data, NSError* error))completion;
 
 @end

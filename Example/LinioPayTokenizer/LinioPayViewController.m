@@ -64,6 +64,7 @@
                FORM_DICT_KEY_COUNTY: @"optional line county",
                FORM_DICT_KEY_COUNTRY: addressCountryField.text,
                FORM_DICT_KEY_POSTAL_CODE: addressPostalCodeField.text,
+               FORM_DICT_KEY_EMAIL: @"test@liniopay.com"
                },
        }
     oneTime:false

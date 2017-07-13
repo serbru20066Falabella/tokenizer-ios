@@ -35,6 +35,7 @@ const NSString *FORM_DICT_KEY_STATE = @"state";
 const NSString *FORM_DICT_KEY_COUNTY = @"county";
 const NSString *FORM_DICT_KEY_COUNTRY = @"country_code";
 const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
+const NSString *FORM_DICT_KEY_EMAIL = @"email";
 
 -(id)initWithKey:(NSString *)key
 {
@@ -579,6 +580,25 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     return TRUE;
 }
 
+-(BOOL)validateEmail:(NSString *)email error:(NSError **)outError {
+    if(email != nil) {
+        const char cRegex[] = "^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-+[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-+[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$";
+        NSString *emailRegex = [NSString stringWithUTF8String:cRegex];
+        NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", emailRegex];
+        BOOL isValid = [emailPredicate evaluateWithObject:email];
+    
+        if (!isValid) {
+            *outError =  [NSError errorWithDomain:ERROR_DOMAIN
+                                             code:ERROR_CODE_INVALID_EMAIL
+                                         userInfo:@{ NSLocalizedDescriptionKey : [NSString stringWithFormat:ERROR_DESC_INVALID_EMAIL, email]}];
+        }
+    
+        return isValid;
+    }
+    
+    return TRUE;
+}
+
 -(NSMutableString *)trimString:(NSMutableString *)string
 {
     const NSError *error;
@@ -618,7 +638,7 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     _errorMessages = [NSMutableArray arrayWithCapacity:1];
     
     
-    NSError *keyError, *nameError, *numberError, *expDateError, *addressFirstNameError, *addressLastNameError, *street1Error, *street2Error, *street3Error, *phoneError, *cityError, *stateError, *countyError, *countryError, *postalCodeError;
+    NSError *keyError, *nameError, *numberError, *expDateError, *addressFirstNameError, *addressLastNameError, *street1Error, *street2Error, *street3Error, *phoneError, *cityError, *stateError, *countyError, *countryError, *postalCodeError, *emailError;
     
     
     if(![self validateKey:_tokenizationKey error:&keyError])
@@ -753,6 +773,14 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
             if (postalCodeError != nil)
             {
                 [_errorMessages addObject:postalCodeError];
+            }
+        }
+        
+        if(![self validateEmail:[addressData objectForKey:FORM_DICT_KEY_EMAIL] error:&emailError])
+        {
+            if (emailError != nil)
+            {
+                [_errorMessages addObject:emailError];
             }
         }
     }
