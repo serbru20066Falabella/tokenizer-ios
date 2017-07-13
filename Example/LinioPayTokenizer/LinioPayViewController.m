@@ -55,11 +55,12 @@
        FORM_DICT_KEY_ADDRESS: @{
                FORM_DICT_KEY_ADDRESS_FIRST_NAME: addressFirstNameField.text,
                FORM_DICT_KEY_ADDRESS_LAST_NAME: addressLastNameField.text,
-               FORM_DICT_KEY_STREET_2: addressLine2Field.text,
                FORM_DICT_KEY_STREET_1: addressLine1Field.text,
                FORM_DICT_KEY_STREET_2: addressLine2Field.text,
+               FORM_DICT_KEY_STREET_3: @"optional line 3",
                FORM_DICT_KEY_CITY: addressCityField.text,
                FORM_DICT_KEY_STATE: addressStateField.text,
+               FORM_DICT_KEY_COUNTY: @"optional line county",
                FORM_DICT_KEY_COUNTRY: addressCountryField.text,
                FORM_DICT_KEY_POSTAL_CODE: addressPostalCodeField.text,
                },

@@ -31,6 +31,7 @@ const NSString *FORM_DICT_KEY_STREET_2 = @"street2";
 const NSString *FORM_DICT_KEY_STREET_3 = @"street3";
 const NSString *FORM_DICT_KEY_CITY = @"city";
 const NSString *FORM_DICT_KEY_STATE = @"state";
+const NSString *FORM_DICT_KEY_COUNTY = @"county";
 const NSString *FORM_DICT_KEY_COUNTRY = @"country_code";
 const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
 
@@ -387,17 +388,17 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     return TRUE;
 }
 
-- (BOOL)validateAddressOptionalStreet:(NSString *)addressStreet type:(StreetType)streetType error:(NSError **)outError;
+- (BOOL)validateOptionalAddressLine:(NSString *)addressLine type:(AddressLineType)lineType error:(NSError **)outError;
 {
-    // Street 2 and Street 3 are always optional
-    if (addressStreet != nil)
+    // Street 2, Street 3, County, Phone are always optional
+    if (addressLine != nil)
     {
         
         NSUInteger maxCharacters;
         NSUInteger errorCode;
         NSString *errorString;
         
-        switch(streetType) {
+        switch(lineType) {
             case AddressStreet2:
                 maxCharacters = MAX_CHAR_STREET_2;
                 errorCode = ERROR_CODE_CHAR_MAX_LIMIT_STREET_2;
@@ -408,15 +409,20 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
                 errorCode = ERROR_CODE_CHAR_MAX_LIMIT_STREET_3;
                 errorString = ERROR_DESC_CHAR_MAX_LIMIT_STREET_3;
                 break;
+            case County:
+                maxCharacters = MAX_CHAR_COUNTY;
+                errorCode = ERROR_CODE_CHAR_MAX_LIMIT_COUNTY;
+                errorString = ERROR_DESC_CHAR_MAX_LIMIT_COUNTY;
+                break;
         }
         
         NSError *charMaxLimitError = [NSError errorWithDomain:ERROR_DOMAIN
                                                          code:errorCode
                                                      userInfo:@{ NSLocalizedDescriptionKey: [NSString stringWithFormat:errorString, (unsigned long)maxCharacters] }];
         
-        NSString *formattedOptionalAddressStreet = [self trimString:[NSMutableString stringWithString:addressStreet]];
+        NSString *formattedOptionalAddressLine = [self trimString:[NSMutableString stringWithString:addressLine]];
         
-        if ([formattedOptionalAddressStreet length] > maxCharacters)
+        if ([formattedOptionalAddressLine length] > maxCharacters)
         {
             *outError = charMaxLimitError;
             return FALSE;
@@ -606,7 +612,7 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
     _errorMessages = [NSMutableArray arrayWithCapacity:1];
     
     
-    NSError *keyError, *nameError, *numberError, *expDateError, *addressFirstNameError, *addressLastNameError, *street1Error, *street2Error, *street3Error, *cityError, *stateError, *countryError, *postalCodeError;
+    NSError *keyError, *nameError, *numberError, *expDateError, *addressFirstNameError, *addressLastNameError, *street1Error, *street2Error, *street3Error, *cityError, *stateError, *countyError, *countryError, *postalCodeError;
     
     
     if(![self validateKey:_tokenizationKey error:&keyError])
@@ -672,7 +678,7 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
             }
         }
         
-        if(![self validateAddressOptionalStreet:[addressData objectForKey:FORM_DICT_KEY_STREET_2]
+        if(![self validateOptionalAddressLine:[addressData objectForKey:FORM_DICT_KEY_STREET_2]
                                            type:AddressStreet2
                                           error:&street2Error])
         {
@@ -682,13 +688,23 @@ const NSString *FORM_DICT_KEY_POSTAL_CODE = @"postal_code";
             }
         }
         
-        if(![self validateAddressOptionalStreet:[addressData objectForKey:FORM_DICT_KEY_STREET_3]
+        if(![self validateOptionalAddressLine:[addressData objectForKey:FORM_DICT_KEY_STREET_3]
                                            type:AddressStreet3
                                           error:&street3Error])
         {
             if (street3Error != nil)
             {
                 [_errorMessages addObject:street3Error];
+            }
+        }
+        
+        if(![self validateOptionalAddressLine:[addressData objectForKey:FORM_DICT_KEY_COUNTY]
+                                         type:County
+                                        error:&countyError])
+        {
+            if (countyError != nil)
+            {
+                [_errorMessages addObject:countyError];
             }
         }
         

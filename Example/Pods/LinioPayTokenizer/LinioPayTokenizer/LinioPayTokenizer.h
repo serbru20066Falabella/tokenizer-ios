@@ -16,9 +16,10 @@ typedef NS_ENUM(NSInteger, NameType) {
     AddressLastName
 };
 
-typedef NS_ENUM(NSInteger, StreetType) {
+typedef NS_ENUM(NSInteger, AddressLineType) {
     AddressStreet2,
-    AddressStreet3
+    AddressStreet3,
+    County
 };
 
 extern const NSString *FORM_DICT_KEY_NAME;
@@ -35,6 +36,7 @@ extern const NSString *FORM_DICT_KEY_STREET_3;
 extern const NSString *FORM_DICT_KEY_CITY;
 extern const NSString *FORM_DICT_KEY_STATE;
 extern const NSString *FORM_DICT_KEY_COUNTRY;
+extern const NSString *FORM_DICT_KEY_COUNTY;
 extern const NSString *FORM_DICT_KEY_POSTAL_CODE;
 
 - (id)initWithKey:(NSString *)key;
@@ -44,7 +46,7 @@ extern const NSString *FORM_DICT_KEY_POSTAL_CODE;
 - (BOOL)validateCVC:(NSString *)cvcNumber card:(NSString *)cardNumber error:(NSError **)outError;
 - (BOOL)validateExpDate:(NSString *)monthValue year:(NSString *)yearValue error:(NSError **)outError;
 - (BOOL)validateAddressStreet1:(NSString *)addressStreet1 error:(NSError **)outError;
-- (BOOL)validateAddressOptionalStreet:(NSString *)addressStreet type:(StreetType)streetType error:(NSError **)outError;
+- (BOOL)validateOptionalAddressLine:(NSString *)addressLine type:(AddressLineType)lineType error:(NSError **)outError;
 - (BOOL)validateAddressCity:(NSString *)city error:(NSError **)outError;
 - (BOOL)validateAddressState:(NSString *)state error:(NSError **)outError;
 - (BOOL)validateAddressCountry:(NSString *)country error:(NSError **)outError;
