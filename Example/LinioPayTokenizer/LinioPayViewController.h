@@ -21,7 +21,8 @@
     IBOutlet UITextField *addressStateField;
     IBOutlet UITextField *addressCountryField;
     IBOutlet UITextField *addressPostalCodeField;
-
+    IBOutlet UITextField *addressFirstNameField;
+    IBOutlet UITextField *addressLastNameField;
 }
 
 - (IBAction)submitForm:(id)sender;
