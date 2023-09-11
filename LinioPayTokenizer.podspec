@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 LinioPay Tokenizer is the IOS library interface to get customer’s credit card information in a secure way. It allows you to set a predetermined
                        DESC
-  s.homepage         = 'https://github.com/LinioIT/pay-tokenizer-ios'
+  s.homepage         = 'https://github.com/serbru20066Falabella/tokenizer-ios.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Omar Gonzalez' => 'o.gonzalez@linio.com' }
-  s.source           = { :git => 'git@github.com:LinioIT/pay-tokenizer-ios.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:serbru20066Falabella/tokenizer-ios.git', :tag => '0.1.1' }
   s.source_files = 'LinioPayTokenizer/**/*'
 end
