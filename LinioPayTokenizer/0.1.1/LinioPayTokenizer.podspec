@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'LinioPayTokenizer'
+  s.name             = 'LinioPayTokenizer2'
   s.version          = '0.1.1'
   s.summary          = 'LinioPay Tokenizer is the IOS library interface to get customer’s credit card information in a secure way.'
   s.description      = <<-DESC
