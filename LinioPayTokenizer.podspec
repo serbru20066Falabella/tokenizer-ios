@@ -17,5 +17,5 @@ LinioPay Tokenizer is the IOS library interface to get customer’s credit card 
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Omar Gonzalez' => 'o.gonzalez@linio.com' }
   s.source           = { :git => 'git@github.com:serbru20066Falabella/tokenizer-ios.git', :tag => '0.1.1' }
-  s.source_files = 'LinioPayTokenizer/**/*'
+  s.source_files = 'LinioPayTokenizer/files/**/*'
 end
